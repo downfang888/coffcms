@@ -1,0 +1,29 @@
+    <div class="fixed-bar">
+        <div class="item-title">
+            <div class="subject">
+                <h3><i class="fa fa-cog"></i>基本信息</h3>
+                <h5></h5>
+            </div>
+            <ul class="tab-base nc-row">
+                {eq name="$Think.const.CONTROLLER_NAME.'@web'|is_check_access" value="1"}
+                <li><a href="{:U('System/web')}" {if condition="'web'==$Think.const.ACTION_NAME"}class="current"{/if}><span>网站设置</span></a></li>
+                {/eq}
+
+                {eq name='$main_lang' value='$admin_lang'}
+                {eq name="$Think.const.CONTROLLER_NAME.'@web2'|is_check_access" value="1"}
+                <li><a href="{:U('System/web2')}" {if condition="'web2'==$Think.const.ACTION_NAME"}class="current"{/if}><span>核心设置</span></a></li>
+                {/eq}
+                {/eq}
+
+                {eq name="$Think.const.CONTROLLER_NAME.'@basic'|is_check_access" value="1"}
+                <li><a href="{:U('System/basic')}" {if condition="'basic'==$Think.const.ACTION_NAME"}class="current"{/if}><span>附件设置</span></a></li>
+                {/eq}
+
+                {eq name='$main_lang' value='$admin_lang'}
+                {eq name="$Think.const.CONTROLLER_NAME.'@water'|is_check_access" value="1"}
+                <li><a href="{:U('System/water')}" {if condition="'water'==$Think.const.ACTION_NAME"}class="current"{/if}><span>图片水印</span></a></li>
+                {/eq}
+                {/eq}
+            </ul>
+        </div>
+    </div>

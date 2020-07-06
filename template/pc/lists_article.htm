@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$eyou.field.seo_title}</title>
+<meta name="description" content="{$eyou.field.seo_description}" />
+<meta name="keywords" content="{$eyou.field.seo_keywords}" />
+<link href="{eyou:global name='web_cmspath' /}/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<meta name="viewport" content="width=1080">
+<link href="{eyou:global name='web_templets_pc' /}/skin/css/master.css" rel="stylesheet">
+<link href="{eyou:global name='web_templets_pc' /}/skin/css/style.css" rel="stylesheet">
+<link href="{eyou:global name='web_templets_pc' /}/skin/css/subpage.css" rel="stylesheet">
+<link href="{eyou:global name='web_templets_pc' /}/skin/css/common.css" rel="stylesheet">
+<script src="{eyou:global name='web_templets_pc' /}/skin/js/jquery.js"></script>
+<script src="{eyou:global name='web_templets_pc' /}/skin/js/jquery.superslide.2.1.1.js"></script>
+<script src="{eyou:global name='web_templets_pc' /}/skin/js/form.js"></script>
+<script src="{eyou:global name='web_templets_pc' /}/skin/js/common.js"></script>
+<script src="{eyou:global name='web_templets_pc' /}/skin/js/jquery.validator.js"></script>
+<script src="{eyou:global name='web_templets_pc' /}/skin/js/zh_cn.js"></script>
+</head>
+<body>
+{eyou:include file="/template/pc/header.htm"/}
+<div class="product sub_pro"> {eyou:include file="/template/pc/left.htm" /}
+  <div class="product02">
+    <div class="content_com_title">
+      <h2>{$eyou.field.typename}</h2>
+      <div class="bread">当前位置：{eyou:position style="crumb" /}</div>
+    </div>
+    <!--文章列表开始-->
+    <div class="content">
+      <ul class="news1">
+        {eyou:list pagesize="15" titlelen="50"}
+        <li><a href="{$field.arcurl}" title="{$field.title}" class="pg-color" >{$field.title}</a><span>{$field.add_time|MyDate='Y-m-d',###}</span></li>
+        {/eyou:list}
+      </ul>
+      <!--分页样式-->
+      <div class="pagination-wrapper">
+        <div class="pagination"> {eyou:pagelist listitem="index,end,pre,next,pageno" listsize="5"/} </div>
+      </div>
+    </div>
+    <!--文章列表结束--> 
+  </div>
+  <div class="clear"></div>
+</div>
+<div class="clear"></div>
+{eyou:include file="/template/pc/footer.htm" /}
+</body>
+</html>

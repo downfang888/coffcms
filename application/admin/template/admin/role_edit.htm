@@ -1,0 +1,207 @@
+{include file="public/layout" /}
+<style type="text/css">
+    .layui-tab-title {
+        position: relative;
+        left: 0;
+        height: 40px;
+        white-space: nowrap;
+        font-size: 0;
+        border-bottom: 1px solid #e2e2e2;
+        -webkit-transition: all .2s;
+    }
+    .layui-tab-title .layui-this {
+        color: #000;
+    }
+    .layui-tab-title li {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 14px;
+        -webkit-transition: all .2s;
+        position: relative;
+        line-height: 40px;
+        min-width: 65px;
+        padding: 0 15px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .layui-show {
+        display: block!important;
+    }
+    .layui-tab-item {
+        display: none;
+    }
+    .table_box {
+        border: 1px solid #e4e4e4;
+    }
+    .table_box td {
+        border-right: 1px solid #e4e4e4;
+        border-bottom: 1px solid #e4e4e4;
+        line-height: 38px;
+    }
+    .table_box td ul {
+        margin-top: 5px;
+    }
+    .layui-this-selected{
+        background-color: #cbe9f3;
+    }
+</style>
+<body style="background-color: #FFF; overflow: auto;">
+<div id="toolTipLayer" style="position: absolute; z-index: 9999; display: none; visibility: visible; left: 95px; top: 573px;"></div>
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<div class="page">
+    {include file="admin/role_bar" /}
+    <form class="form-horizontal" action="{:U('Admin/role_edit')}" id="roleform" method="post">
+        <input type="hidden" name="id" id="id" value="{$info.id}">
+        <div class="ncap-form-default">
+            <dl class="row">
+                <dt class="tit">
+                    <label for="name"><em>*</em>角色名称</label>
+                </dt>
+                <dd class="opt">
+                    <input type="text" name="name" id="name" value="{$info.name}" class="input-txt">
+                    <span class="err"></span>
+                    <p class="notic"></p>
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="tit">
+                    <label for="pid">所属上级</label>
+                </dt>
+                <dd class="opt">
+                    <select class="small form-control" id="pid" name="pid">
+                        {eq name="$Think.session.admin_info.role_id" value="-1"}
+                        <option value="0">超级管理员</option>
+                        {/eq}
+                        {$select_html}
+                    </select>
+                    <span class="err"></span>
+                    <p class="notic">如果选择上级角色，那么新增的分类则为被选择上级角色的子角色</p>
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="tit">
+                    <label for="remark">角色描述</label>
+                </dt>
+                <dd class="opt">
+                    <textarea id="remark" name="remark" class="tarea" rows="6">{$info.remark}</textarea>
+                    <span class="err"></span>
+                    <p class="notic"></p>
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="tit">
+                    <label for="cls_full"><em>*</em>权限分配</label>
+                </dt>
+                <dd style="margin-left:200px;">
+                    <div class="layui-tab">
+                        <ul class="layui-tab-title" data-id="tab">
+                            {volist name="modules" id="v0" key="k0"}
+                            <li {eq name="k0" value="1"}class="layui-this layui-this-selected"{/eq}><a href="javascript:void(0);" onclick="fun_tab(this, {$v0.id});">{$v0.name}</a></li>
+                            {/volist}
+                        </ul>
+                        <div class="layui-tab-content">
+                            {volist name="modules" id="v0" key="k0"}
+                            <div class="layui-tab-item role_js {eq name="k0" value="1"}layui-show{/eq}" id="tb_flexigrid_{$v0['id']}">
+                                <div class="ncap-account-container" style="border-top:none;">
+                                    <h4 style="text-align:left;"><label>&nbsp;&nbsp;<input id="cls_full" onclick="choosebox(this);" data-tb-id="tb_flexigrid_{$v0['id']}" type="checkbox">&nbsp;全选</label>
+                                    </h4>
+                                </div>
+                                <table class="table_box">
+                                    <tbody>
+                                    {foreach name="v0['child']" item="v1" key="k1"}
+                                        {volist name="v1['child']" id="v2" key="k2"}
+                                        <tr class="tr_{$v1.id}">
+                                            {eq name="k2" value="1"}
+                                            <td rowspan="{$v1['child']|count}" class="sign" bgcolor="#fffaf0">
+                                                <div style="width: 100px;"><label>&nbsp;<input value="1" allcka="tr_{$v1.id}" type="checkbox">&nbsp;{$v1.name}</label></div>
+                                            </td>
+                                            {/eq}
+                                            <td align="left" bgcolor="#f5f5f5">
+                                                <div style="width: 150px;"><label>&nbsp;<input value="1" cka="mod-{$v2.id}" type="checkbox">&nbsp;{$v2.name}</label></div>
+                                            </td>
+                                            <td style="width: 100%;" bgcolor="#fafafa">
+                                                <ul class="ncap-account-container-list" style="width: 100%;">
+                                                    {foreach name="v2['child']" item="v3" key="k3"}
+                                                    <li><label><input type="checkbox" name="rule_ids[]" ck="mod-{$v3.modular_id}" style="border:0px;" value="{$v3.id}" {notempty name="access_list[$v3['id']]"}checked="true"{/notempty} />&nbsp;{$v3.name}</label>&nbsp;&nbsp;</li>
+                                                    {/foreach}
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        {/volist}
+                                    {/foreach}
+                                    </tbody>
+                                </table>
+                            </div>
+                            {/volist}
+                        </div>
+                    </div>
+                </dd>
+            </dl>
+
+            <div class="bot"><a href="JavaScript:void(0);" onclick="roleSubmit();" class="ncap-btn-big ncap-btn-green" id="submitBtn">确认提交</a></div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(":checkbox[allcka]").click(function(){
+            var $tr_obj = $("."+$(this).attr("allcka"));
+            var $allcks = $($tr_obj).find('input[type=checkbox]');
+            if($(this).is(':checked')){
+                $allcks.each(function(){$(this).prop("checked",true);});
+            }else{
+                $allcks.each(function(){$(this).removeAttr('checked');});
+            }
+        });
+        $(":checkbox[cka]").click(function(){
+            var $cks = $(":checkbox[ck='"+$(this).attr("cka")+"']");
+            if($(this).is(':checked')){
+                $cks.each(function(){$(this).prop("checked",true);});
+            }else{
+                $cks.each(function(){$(this).removeAttr('checked');});
+            }
+        });
+    });
+
+    function choosebox(o){
+        var vt = $(o).is(':checked');
+        var id = $(o).attr('data-tb-id');
+        if(vt){
+            $('#'+id+' input[type=checkbox]').prop('checked',vt);
+        }else{
+            $('#'+id+' input[type=checkbox]').removeAttr('checked');
+        }
+    }
+
+    function roleSubmit(){
+        if($('#name').val() == '' ){
+            layer.msg('角色名称不能为空！', {icon: 2,time: 1000});
+            return false;
+        }
+
+        var a = [];
+        $('input[name^=rule_ids]').each(function(i,o){
+            if($(o).is(':checked')){
+                a.push($(o).val());
+            }
+        })
+        if(a.length == 0){
+            layer.msg('请具体分配权限！', {icon: 2,time: 1000});
+            return false;
+        }
+
+        layer_loading('正在处理');
+
+        $('#roleform').submit();
+    }
+
+    function fun_tab(obj, id){
+        $('ul[data-id="tab"]').find('li').removeClass('layui-this layui-this-selected');
+        $(obj).parent().addClass('layui-this layui-this-selected');
+        $('.role_js').removeClass('layui-show');
+        $('#tb_flexigrid_'+id).addClass('layui-show');
+    }
+</script>
+
+{include file="public/footer" /}

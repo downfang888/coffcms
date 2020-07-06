@@ -1,0 +1,793 @@
+﻿@charset "utf-8";
+a.pg-color:hover {
+	color: #351000;
+}
+/* 内页右侧头部 */
+.content_com_title {
+backgrou/nd: url(../images/sub01.jpg) left bottom repeat-x;
+	position: relative;
+	height: 55px;
+	height: 47px;
+line-heig/ht:47px;
+	border-bottom: #dddddd solid 1px;
+	margin-bottom: 15px;
+}
+.content_com_title h2 {
+	display: inline-block;
+	padding-bottom: 6px;
+	position: absolute;
+	left: 3px;
+	top: 13px;
+	font-size: 18px;
+	font-weight: normal;
+	color: #461d00;
+	text-align: left;
+	font-weight: bold;
+	font-family: "microsoft yahei";
+}
+.bread {
+	color: #000;
+	position: absolute;
+	top: 18px;
+	right: 0px;
+}
+.bread a {
+	display: inline-block;
+	color: #000;
+}
+/*------------------------------- ■ 内页---------------------------------*/
+.sub_banner {
+	position: relative;
+	height: 272px;
+	margin-top: 52px;
+	border-bottom: #150600 solid 8px;
+}
+.sub_banner_line {
+	position: absolute;
+	left: 50%;
+	bottom: -107px;
+	margin-left: -728px;
+	width: 100px;
+	height: 100px;
+}
+.product02 {
+	float: right;
+	width: 750px;
+	padding: 0 20px 40px;
+	background: #fff;
+	min-height: 633px;
+	_height: 633px;
+	border-bottom: 1px solid #e2e2e2
+}
+.product03 {
+	float: right;
+	width: 964px;
+	width: 1060px;
+	width: 966px;
+	padding: 0 20px 40px;
+box-siz/ing:border-box;
+	background: #fff;
+	min-height: 633px;
+	_height: 633px;
+borde/r-bottom:1px solid #e2e2e2
+}
+.product {
+wi/dth:1060px;
+	width: 1006px;
+	margin: 0 auto;
+	position: relative;
+	margin-top: 30px;
+}
+/*公共内页左侧left-nav*/
+.sub_pro01 {
+	float: left;
+	width: 200px;
+wid/th:225px;
+	padding-bottom: 20px;
+back/ground: url(../images/k7.gif) center bottom no-repeat #fff;
+}
+.sub_pro02 {
+	background: #fff;
+pa/dding:7px 6px;
+}
+.product07 {
+	height: 88px;
+	line-height: 88px;
+	margin: 0 auto;
+	text-align: center;
+bor/der:#f0eadd solid 1px;
+bor/der-top:#beaf8b solid 1px;
+	color: #681e00;
+	font-size: 24px;
+	font-weight: bold;
+	background: url(../images/sub04.jpg) no-repeat;
+}
+.product07 b {
+	display: block;
+}
+.product07 span {
+	display: block;
+	color: #fff;
+	text-transform: uppercase;
+	font-family: "Times New Roman", Times, serif;
+	font-weight: bold;
+}
+.sidenav {
+	padding-top: 20px;
+	width: 199px;
+	margin: 0 auto;
+}
+.sidenav ul {
+ba/ckground:#fff;
+	min-height: 300px;
+	_height: 300px;
+	border-bottom: 5px #ffcc00 solid;
+}
+.sidenav ul li {
+	min-height: 36px;
+	display: block;
+	line-height: 36px;
+	font-size: 14px;
+	margin-bottom: 3px;
+}
+.sidenav ul li a.sidenava {
+	width: 200px;
+	height: 36px;
+	display: block;
+	line-height: 36px;
+	color: #333;
+	overflow: hidden;
+}
+.sidenav ul li a.sidenava p {
+	color: #333;
+	padding-left: 32px;
+	background: url(../images/jj07.png) 86% center no-repeat;
+	padding-right: 30px;
+	height: 36px;
+	overflow: hidden;
+}
+.sidenav ul li a.sidenava:hover {
+}
+.sidenav ul li a.sidenava:hover p {
+	font-weight: bold;
+	color: #333;
+	padding-left: 32px;
+	background: url(../images/jj08.png) 86% center no-repeat;
+}
+.sidenav ul li a.sidenava.cu p {
+	font-weight: bold;
+	color: #333;
+	padding-left: 32px;
+	background: url(../images/jj08.png) 86% center no-repeat;
+}
+.sidenav ul li .proTwo {
+	display: block;
+}
+.sidenav ul li dl {
+	width: 200px;
+	height: auto;
+	display: none;
+	font-size: 12px;
+}
+.sidenav ul li dl dd {
+	width: 200px;
+	height: 38px;
+}
+.sidenav ul li dl dd a {
+	display: block;
+	width: 180px;
+	height: 38px;
+	padding: 0 10px;
+}
+.sidenav ul li dl dd a span {
+	display: block;
+	height: 37px;
+	line-height: 37px;
+	color: #333;
+	padding-left: 40px;
+}
+.sidenav ul li dl dd a:hover {
+}
+.sidenav ul li dl dd a:hover span {
+	font-weight: bold;
+}
+.sidenav ul li dl dd a.on {
+}
+.sidenav ul li dl dd a.on span {
+	font-weight: bold;
+}
+.sub_lx {
+	color: #fff;
+	background: #333;
+	padding: 11px;
+	margin-top: 15px;
+	font-size: 14px;
+	line-height: 24px;
+}
+.sub_lx01 {
+	border: #727272 solid 1px;
+	padding: 10px 15px;
+}
+/*==========分页样式===========*/
+.paging {
+	width: 100%;
+	height: 24px;
+	text-align: center;
+	padding: 15px 0;
+	float: right
+}
+.paging a, .paging span {
+	font: 12px/24px "microsoft yahei";
+	color: #333;
+	text-decoration: none;
+	padding: 0 8px;
+	border: solid 1px #ddd;
+	display: inline-block;
+	white-space: nowrap;
+	margin: 0 3px;
+}
+.paging a {
+	background: none;
+}
+.paging a:hover {
+	background: #000;
+	color: #fff;
+}
+.paging span {
+	background: #000;
+	color: #fff;
+}
+.page {
+	width: 100%;
+	margin: 10px auto;
+	overflow: hidden;
+	position: relative;
+}
+.page p {
+	width: 100%;
+	height: 28px;
+	font: 12px/28px "microsoft yahei";
+	color: #1d1d1d;
+	overflow: hidden;
+}
+.page p a {
+	color: #1d1d1d
+}
+.page p a:hover {
+	color: #351000;
+}
+.back {
+	font: 14px/39px "microsoft yahei";
+	color: #fff;
+	width: 138px;
+	margin: 0 auto;
+	border-radius: 4px;
+	display: block;
+	text-align: center;
+	background: #351000;
+}
+.back:hover {
+	background: #333;
+}
+/* 产品 */
+.product3, .product8, .product8 li {
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+}
+.product3 li {
+	width: 30%;
+	padding: 1% 1.5% 0.5%;
+	float: left;
+	overflow: hidden;
+	position: relative;
+	text-align: center;
+}
+.product02 .product3 li img {
+	display: inline-block;
+	height: 163px;
+	max-width: 100%;
+	vertical-align: middle
+}
+.product03 .product3 li img {
+	display: inline-block;
+	height: 209px;
+	max-width: 100%;
+}
+.product3 li>p {
+	width: 88%;
+	margin: 0 auto;
+	text-align: center;
+	font: 14px/40px "microsoft yahei";
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.product3 li>div {
+	margin: 3px auto;
+	position: relative;
+	margin: 0 auto;
+	width: 96.6%;
+	text-align: center;
+	vertical-align: middle;
+}
+.product3 li>div>a {
+	display: block;
+}
+.product02 .product3 li>div {
+}
+.product3 li>div>p, .prod-zoom {
+	position: absolute;
+	background: url(../images/product_zoom.png) 0 0 no-repeat;
+	width: 53px;
+	height: 53px;
+	left: 50%;
+	top: 50%;
+	margin: -26px 0 0 -26px;
+	cursor: pointer;
+	z-index: 1;
+	top: -100%;
+	-webkit-transition: all 0.5s ease-in-out 0s;
+	-moz-transition: all 0.5s ease-in-out 0s;
+	-ms-transition: all 0.5s ease-in-out 0s;
+	transition: all 0.5s ease-in-out 0s;
+}
+.product3 li>div:hover p, .prod8-left:hover p {
+	top: 50%;
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	-moz-transition: all 0.3s ease-in-out 0s;
+	-ms-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;
+}
+.product8 li {
+	padding: 10px 0 20px 0;
+	border-bottom: 1px dashed #ccc;
+}
+.prod8-left a {
+	display: block;
+	height: auto;
+	overflow: hidden;
+}
+.prod8-left a img {
+	display: block;
+	width: 100%;
+}
+.product8 li>p a {
+	float: left;
+	color: #000;
+	font-weight: bold;
+	text-decoration: underline
+}
+.product8 li>p span {
+	float: right;
+}
+.product8 li>p {
+	width: 100%;
+	height: 36px;
+	overflow: hidden;
+	font: 16px/36px "microsoft yahei";
+	color: #9a9a9a;
+	padding-bottom: 5px;
+}
+.prod8-left {
+	float: left;
+	width: 26%;
+	height: auto;
+	overflow: hidden;
+	position: relative;
+	margin-right: 1.875%;
+}
+.prod8-right {
+	float: right;
+	width: 70.125%;
+	font: 14px/30px "microsoft yahei";
+	color: #7c7c7c;
+	padding-top: 10px;
+}
+/* 新闻 */
+.news {
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+}
+.news li {
+	width: 100%;
+	height: 35px;
+	margin-top: 10px;
+	overflow: hidden;
+	background: url(../images/icons1.jpg) 8px center no-repeat;
+	font: 16px/35px "microsoft yahei";
+	color: #1d1d1d;
+}
+.news li a {
+	float: left;
+	text-decoration: underline;
+	margin-left: 20px;
+	color: #000;
+	font-weight: bold;
+}
+.news li span {
+	float: right;
+	color: #666666;
+	font-weight: 100;
+	margin-right: 20px;
+}
+.news li.blank {
+	margin-bottom: 26px;
+}
+.news p {
+	line-height: 26px;
+	color: #666666;
+	padding: 0 20px 10px;
+	border-bottom: 1px dashed #999999;
+}
+.news1 {
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	margin: 12px auto;
+}
+.news1 li {
+	width: 100%;
+	padding: 5px 0;
+	height: 30px;
+	font: 14px/30px "microsoft yahei";
+	color: #737373;/* background:#fff; */
+	border-bottom: 1px dashed #dddddd;
+}
+.news1 li a {
+	float: left;
+	margin-left: 12px;
+}
+.news1 li span {
+	float: right;
+	margin-right: 12px;
+}
+/* 详细页 */
+.content {
+	min-height: 672px;
+_height:expression(this.scrollHeight < 672 ? "672px" : "auto");
+	font-size: 14px;
+}
+.view {
+	line-height: 180%;
+	border-bottom: 1px dashed #ccc;
+	padding: 0 0 20px;
+	margin-bottom: 20px;
+	min-height: 460px;
+}
+.view-title {
+	width: 100%;
+	text-align: center;
+	font: 20px/36px "microsoft yahei";
+	color: #333;
+	padding: 14px 0 0
+}
+.view-date {
+	width: 100%;
+	text-align: center;
+	font: 12px/24px "microsoft yahei";
+	color: #999;
+}
+.view-date span {
+	margin: 0 7px;
+}
+.view-share {
+	width: 140px;
+	margin: 20px auto;
+}
+.view-pages {
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	margin: 20px auto;
+}
+.view-pages p {
+	width: 100%;
+	height: 30px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	border-bottom: 1px dashed #ddd;
+}
+.view-back {
+	display: block;
+	width: 100px;
+	height: 30px;
+	margin: 10px auto;
+	text-align: center;
+	font: 14px/30px "microsoft yahei";
+}
+.view h1 {
+	width: 100%;
+	font: 20px/30px "microsoft yahei";
+	color: #351000;
+	font-weight: bold;
+}
+.view img {
+	max-width: 100%;
+	display: inline
+}
+.view center {
+	margin: 10px auto;
+}
+.view div {
+	font-size: 14px;
+}
+/* msg 留言板 */
+.msg {
+	width: 100%;
+	margin: 16px auto;
+	height: auto;
+	overflow: hidden;
+}
+.msg li {
+	width: 100%;
+	height: auto;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+.msg_top {
+	width: 100%;
+	height: auto;
+	font: 14px/30px "microsoft yahei";
+	background: #ededed;
+	color: #333333;
+	text-indent: 14px;
+	overflow: hidden;
+	border-radius: 3px 3px 0 0;
+	font-weight: bold;
+}
+.msg_top span {
+	margin-right: 14px;
+}
+.msg_con {
+	border: 1px solid #ebebeb;
+	background: #f3f3f3;
+	overflow: hidden;
+	padding-bottom: 12px;
+}
+.msg_consult {
+	width: 96%;
+	margin: 0 auto;
+	font: 14px/36px "microsoft yahei";
+	color: #7b7b7b;
+}
+.msg_reply {
+	width: 96%;
+	margin: 0 auto;
+	font: 14px/36px "microsoft yahei";
+	border: 1px solid #ebebeb;
+	border-radius: 3px;
+	background: #fff;
+	color: #ff5958;
+	text-indent: 14px;
+}
+.msg_now {
+	width: 100%;
+	height: 34px;
+	background: url(../images/msgline1.png) center center no-repeat;
+	overflow: hidden;
+	margin: 65px 0 30px 0;
+}
+.msg_title {
+	display: none;
+	width: 155px;
+	height: 34px;
+	background-image: url(../images/msgbtn.png);
+	background-position: 7px center;
+	background-repeat: no-repeat;
+	text-indent: 43px;
+	margin: 0 auto;
+	color: #fff;
+	font: 22px/34px "microsoft yahei";
+	background: #333;
+}
+.msg_ul {
+	width: 580px;
+	height: auto;
+	overflow: hidden;
+	margin: 20px auto;
+}
+.msg_ul li {
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 12px;
+}
+.msg_ul li p {
+	width: 130px;
+	float: left;
+	height: 36px;
+	font: 14px/36px "microsoft yahei";
+	color: #333;
+	vertical-align: top;
+	text-align: right;
+	margin: 0 6px 0 0;
+}
+.msg_ul li p span {
+	color: red;
+	margin-top: 2px;
+	vertical-align: middle;
+	font-weight: bold
+}
+.msg_input {
+	width: 264px;
+	height: 34px;
+	border: 1px solid #d9d9d9;
+	border-radius: 2px;
+	padding: 0 10px;
+}
+.msg_pin {
+	width: 164px;
+	height: 34px;
+	border: 1px solid #d9d9d9;
+	border-radius: 2px;
+	padding: 0 10px;
+	float: left;
+}
+.msg_pin img {
+	float: left;
+	margin-left: 14px;
+}
+.msg_textarea {
+	width: 264px;
+	height: 80px;
+	border: 1px solid #d9d9d9;
+	border-radius: 2px;
+	padding: 10px;
+	resize: none;
+	line-height: 20px !important;
+}
+.msg_submit {
+	width: 286px;
+	height: 36px;
+	margin: 20px auto;
+	border-radius: 3px;
+	border: 0;
+	text-align: center;
+	font: 18px/36px "microsoft yahei";
+	color: #fff;
+	cursor: pointer;
+	background: #974305;
+}
+/*==========以下部分是Validform必须的===========*/
+.Validform_checktip {
+	margin-left: 4px;
+	line-height: 20px;
+	height: 20px;
+	overflow: hidden;
+	color: #999;
+	font-size: 12px;
+}
+.Validform_right {
+	color: #71b83d;
+	padding-left: 20px;
+	background: url(../images/right.png) no-repeat left center;
+}
+.Validform_wrong {
+	color: #999;
+	padding-left: 50px;
+	white-space: nowrap;
+	background: url(../images/error.png) no-repeat 30px center;
+	font-size: 14px;
+	float: left;
+	margin-top: 6px
+}
+.Validform_loading {
+	padding-left: 20px;
+	background: url(../images/onload.gif) no-repeat left center;
+}
+.Validform_error {
+	background-color: #ffe7e7;
+}
+#Validform_msg {
+	color: #7d8289;
+	font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif;
+	width: 280px;
+	-webkit-box-shadow: 2px 2px 3px #aaa;
+	-moz-box-shadow: 2px 2px 3px #aaa;
+	background: #fff;
+	position: absolute;
+	top: 0px;
+	right: 50px;
+	z-index: 99999;
+	display: none;
+filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999');
+	box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+#Validform_msg .iframe {
+	position: absolute;
+	left: 0px;
+	top: -1px;
+	z-index: -1;
+}
+#Validform_msg .Validform_title {
+	line-height: 25px;
+	height: 25px;
+	text-align: left;
+	font-weight: bold;
+	padding: 0 8px;
+	color: #fff;
+	position: relative;
+	background-color: #999;
+	background: -moz-linear-gradient(top, #999, #666 100%);
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#999), to(#666));
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#999999', endColorstr='#666666');
+}
+#Validform_msg a.Validform_close:link, #Validform_msg a.Validform_close:visited {
+	line-height: 22px;
+	position: absolute;
+	right: 8px;
+	top: 0px;
+	color: #fff;
+	text-decoration: none;
+}
+#Validform_msg a.Validform_close:hover {
+	color: #ccc;
+}
+#Validform_msg .Validform_info {
+	padding: 8px;
+	border: 1px solid #bbb;
+	border-top: none;
+	text-align: left;
+}
+.info {
+	color: #666;
+	position: absolute;
+	display: none;
+	line-height: 34px;
+	float: right;
+}
+.dec {
+	bottom: -8px;
+	display: block;
+	overflow: hidden;
+	position: absolute;
+	left: 10px;
+	width: 17px;
+}
+.dec s {
+	font-family: simsun;
+	font-size: 16px;
+	height: 19px;
+	left: 0;
+	line-height: 21px;
+	position: absolute;
+	text-decoration: none;
+	top: -9px;
+	width: 17px;
+}
+.dec .dec1 {
+	color: #ccc;
+}
+.dec .dec2 {
+	color: #fff;
+	top: -10px;
+}
+.passwordStrength {
+}
+.passwordStrength b {
+	font-weight: normal;
+}
+.passwordStrength b, .passwordStrength span {
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 16px;
+	line-height: 18px\9;
+	height: 16px;
+}
+.passwordStrength span {
+	width: 45px;
+	text-align: center;
+	background-color: #d0d0d0;
+	border-right: 1px solid #fff;
+}
+.passwordStrength .last {
+	border-right: none;
+}
+.passwordStrength .bgStrength {
+	color: #fff;
+	background-color: #71b83d;
+}

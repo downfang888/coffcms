@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$eyou.field.seo_title}</title>
+<meta name="description" content="{$eyou.field.seo_description}" />
+<meta name="keywords" content="{$eyou.field.seo_keywords}" />
+<link href="{eyou:global name='web_cmspath' /}/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<meta name="viewport" content="width=1080">
+<link href="{eyou:global name='web_templets_pc' /}/skin/css/master.css" rel="stylesheet">
+<link href="{eyou:global name='web_templets_pc' /}/skin/css/style.css" rel="stylesheet">
+<link href="{eyou:global name='web_templets_pc' /}/skin/css/subpage.css" rel="stylesheet">
+<link href="{eyou:global name='web_templets_pc' /}/skin/css/common.css" rel="stylesheet">
+<script src="{eyou:global name='web_templets_pc' /}/skin/js/jquery.js"></script>
+<script src="{eyou:global name='web_templets_pc' /}/skin/js/jquery.superslide.2.1.1.js"></script>
+<script src="{eyou:global name='web_templets_pc' /}/skin/js/form.js"></script>
+<script src="{eyou:global name='web_templets_pc' /}/skin/js/common.js"></script>
+<script src="{eyou:global name='web_templets_pc' /}/skin/js/jquery.validator.js"></script>
+<script src="{eyou:global name='web_templets_pc' /}/skin/js/zh_cn.js"></script>
+<script src="{eyou:global name='web_templets_pc' /}/skin/js/sdcms.hits.js"></script>
+</head>
+<body>
+{eyou:include file="/template/pc/header.htm"/}
+<div class="product sub_pro"> {eyou:include file="/template/pc/left.htm" /}
+  <div class="product02">
+    <div class="content_com_title">
+      <h2>{$eyou.field.typename}</h2>
+      <div class="bread">当前位置：{eyou:position style="crumb" /}</div>
+    </div>
+    <!--文章内容开始-->
+    <div class="content">
+      <div class="view">
+        <h1 class="view-title">{$eyou.field.title}</h1>
+        <div class="view-date">发布时间：{$eyou.field.add_time|MyDate='Y-m-d H:i:s',###}　点击量：<span id="hits">{eyou:arcclick /}</span></div>
+        <div class="bshare-custom view-share" ></div>
+        <p>{$eyou.field.content}</p>
+      </div>
+      <div class="page">
+        <p> {eyou:prenext get="pre" empty="<a>上一篇：暂无</a>"} <a href="{$field.arcurl}" title="{$field.title}"> 上一篇 : {$field.title}</a> {/eyou:prenext} </p>
+        <p> {eyou:prenext get="next" empty="<a>下一篇：暂无</a>"} <a href="{$field.arcurl}" title="{$field.title}"> 下一篇: {$field.title}</a> {/eyou:prenext} </p>
+        <a href="{$eyou.field.typeurl}" title="返回列表" class="back theme_color">返回列表</a> </div>
+    </div>
+    <!--文章内容结束--> 
+  </div>
+  <div class="clear"></div>
+</div>
+<div class="clear"></div>
+{eyou:include file="/template/pc/footer.htm" /}
+</body>
+</html>

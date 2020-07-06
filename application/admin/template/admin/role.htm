@@ -1,0 +1,149 @@
+{include file="public/layout" /}
+<body style="background-color: rgb(255, 255, 255); overflow: auto; cursor: default; -moz-user-select: inherit;">
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<div class="page">
+    {include file="admin/role_bar" /}
+    <div class="flexigrid">
+        <div class="mDiv">
+            <div class="ftitle">
+                <h3>角色列表</h3>
+                <h5>(共{$pager->totalRows}条记录)</h5>
+            </div>
+            <div title="刷新数据" class="pReload"><i class="fa fa-refresh"></i></div>
+            <form class="navbar-form form-inline" action="{:U('Admin/role')}" method="get" onsubmit="layer_loading('正在处理');">
+                {$searchform.hidden|default=''}
+                <div class="sDiv">
+                    <div class="sDiv2">
+                        <input type="text" size="30" name="keywords" class="qsbox" placeholder="搜索相关数据...">
+                        <input type="submit" class="btn" value="搜索">
+                    </div>
+                    <div class="sDiv2">
+                        <input type="button" class="btn" value="重置" onClick="window.location.href='{:U('Admin/role')}';">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="hDiv">
+            <div class="hDivBox">
+                <table cellspacing="0" cellpadding="0">
+                    <thead>
+                    <tr>
+                        <th class="sign" axis="col0">
+                            <div style="text-align: left; width: 24px;" class="">选择</div>
+                        </th>
+                        <th align="left" abbr="article_title" axis="col3" class="">
+                            <div style="text-align: left; width: 100px;" class="">ID</div>
+                        </th>
+                        <th align="left" abbr="ac_id" axis="col4" class="">
+                            <div style="text-align: left; width: 150px;" class="">角色名称</div>
+                        </th>
+                        <th align="left" abbr="ac_id" axis="col4" class="">
+                            <div style="text-align: left; width: 150px;" class="">所属上级</div>
+                        </th>
+                        <th align="center" abbr="article_show" axis="col5" class="">
+                            <div style="text-align: left; width: 250px;" class="">描述</div>
+                        </th>
+                        <th align="center" axis="col1" class="">
+                            <div style="text-align: left; width: 120px;">操作</div>
+                        </th>
+                        <th style="width:100%" axis="col7">
+                            <div></div>
+                        </th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <div class="bDiv" style="height: auto;">
+            <div id="flexigrid" cellpadding="0" cellspacing="0" border="0">
+                <table>
+                    <tbody>
+                    {empty name="list"}
+                        <tr>
+                            <td class="no-data" align="center" axis="col0" colspan="50">
+                                <i class="fa fa-exclamation-circle"></i>没有符合条件的记录
+                            </td>
+                        </tr>
+                    {else/}
+                        {foreach name="list" item="vo" key="k" }
+                        <tr>
+                            <td class="sign">
+                                <div style="width: 24px;"><input type="checkbox" name="ids[]" value="{$vo.id}"></div>
+                            </td>
+                            <td align="left" class="">
+                                <div style="text-align: left; width: 100px;">{$vo.id}</div>
+                            </td>
+                            <td align="left" class="">
+                                <div style="text-align: left; width: 150px;">
+                                    {eq name="'Admin@role_edit'|is_check_access" value="1"}
+                                    <a href="{:U('Admin/role_edit',array('id'=>$vo['id']))}">{$vo.name}</a>
+                                    {else /}
+                                    {$vo.name}
+                                    {/eq}
+                                </div>
+                            </td>
+                            <td align="left" class="">
+                                <div style="text-align: left; width: 150px;">{$vo.pname|default="超级管理员"}</div>
+                            </td>
+                            <td align="left" class="">
+                                <div style="text-align: left; width: 250px;">{$vo.remark}</div>
+                            </td>
+                            <td align="center" class="">
+                                <div style="text-align: left; width: 120px; max-width:170px;">
+                                    {eq name="'Admin@role_edit'|is_check_access" value="1"}
+                                    <a href="{:U('Admin/role_edit',array('id'=>$vo['id']))}" class="btn blue"><i class="fa fa-pencil-square-o"></i>编辑</a>
+                                    {/eq}
+                                    {eq name="'Admin@role_del'|is_check_access" value="1"}
+                                    <a class="btn red"  href="javascript:void(0);" data-url="{:U('Admin/role_del')}" data-id="{$vo.id}" onclick="delfun(this);"><i class="fa fa-trash-o"></i>删除</a>
+                                    {/eq}
+                                </div>
+                            </td>
+                            <td align="" class="" style="width: 100%;">
+                                <div>&nbsp;</div>
+                            </td>
+                        </tr>
+                        {/foreach}
+                    {/empty}
+                    </tbody>
+                </table>
+            </div>
+            <div class="iDiv" style="display: none;"></div>
+        </div>
+        <div class="tDiv">
+            <div class="tDiv2">
+                <div class="fbutton checkboxall">
+                    <input type="checkbox" onclick="javascript:$('input[name*=ids]').prop('checked',this.checked);">
+                </div>
+                {eq name="'Admin@role_del'|is_check_access" value="1"}
+                <div class="fbutton">
+                    <a onclick="batch_del(this, 'ids');" data-url="{:U('Admin/role_del')}">
+                        <div class="add" title="批量删除">
+                            <span><i class="fa fa-close"></i>批量删除</span>
+                        </div>
+                    </a>
+                </div>
+                {/eq}
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <!--分页位置-->
+        {$page}
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        // 表格行点击选中切换
+        $('#flexigrid > table>tbody >tr').click(function(){
+            $(this).toggleClass('trSelected');
+        });
+
+        // 点击刷新数据
+        $('.fa-refresh').click(function(){
+            location.href = location.href;
+        });
+
+    });
+</script>
+
+{include file="public/footer" /}

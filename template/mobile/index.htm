@@ -1,0 +1,236 @@
+<!doctype html>
+<html style="font-size: 120px;">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="telephone=no" name="format-detection">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>{eyou:global name='web_title' /}</title>
+<meta name="description" content="{eyou:global name='web_description' /}" />
+<meta name="keywords" content="{eyou:global name='web_keywords' /}" />
+<link href="{eyou:global name='web_cmspath' /}/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="{eyou:global name='web_templets_m' /}/skin/css/swiper.min.css" />
+<link rel="stylesheet" type="text/css" href="{eyou:global name='web_templets_m' /}/skin/css/master.css" />
+<link rel="stylesheet" type="text/css" href="{eyou:global name='web_templets_m' /}/skin/css/subpage.css" />
+<link rel="stylesheet" type="text/css" href="{eyou:global name='web_templets_m' /}/skin/css/jquery.bxslider.css" />
+<script type="text/javascript" src="{eyou:global name='web_templets_m' /}/skin/js/jquery.js"></script>
+<script type="text/javascript" src="{eyou:global name='web_templets_m' /}/skin/js/swiper.min.js"></script>
+<script type="text/javascript" src="{eyou:global name='web_templets_m' /}/skin/js/common.js"></script>
+<script type="text/javascript" src="{eyou:global name='web_templets_m' /}/skin/js/jquery.bxslider.js"></script>
+</head>
+<style>
+.head {
+	background: #ffffff
+}
+.foot {
+	background: #3f3f3f
+}
+.nav {
+	background: #481f01
+}
+.nav_color {
+	background: #481f01
+}
+</style>
+
+<body>
+{eyou:include file="/template/mobile/header.htm" /}
+<div class="allpage">
+  <div class="black-fixed iconfont">&#xe60f;</div>
+  <div class="header clear-fix">
+    <div class="head"> <a href="{eyou:global name='web_cmsurl' /}/" title="{eyou:global name="web_name"/}" class="logo"> <img src="{eyou:global name="web_logo"/}" alt="{eyou:global name="web_name"/}" style="padding-top:5px;padding-left: 115px;"/> </a>
+      <div class="nav-btn commonfont">&#xe60b;</div>
+    </div>
+  </div>
+  </case>
+  <div class="content content_new">
+    <div class="banner">
+      <div class="ban">
+        <div class="swiper-wrapper"> {eyou:adv pid='1'}
+          <div class="swiper-slide"> <img src="{$field.litpic}"/> </div>
+          {/eyou:adv} </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+    <div class="index_show"> <img src="{eyou:global name='web_templets_m' /}/skin/img/show.jpg"/> </div>
+    <div class="clear"></div>
+    {eyou:channelartlist typeid='35'}
+    <div class="index_pro" style="background-image:url({eyou:global name='web_templets_m' /}/skin/img/pro_bg.jpg);background-size:100% auto;background-repeat:no-repeat;">
+      <div class="index_pro02">{eyou:field name='typename' /}</div>
+      <div style="height:35%;"></div>
+      
+      <!--效果开始-->
+      <div class="slider8">
+        <div class="slide">
+          <div class="index_pro03"> {eyou:arclist titlelen='30' row='6'}
+            <dl>
+              <a href="{$field.arcurl}">
+              <dt><img src="{$field.litpic}" alt="{$field.title}"/></dt>
+              <dd>-{$field.title}-</dd>
+              </a>
+            </dl>
+            {/eyou:arclist} </div>
+        </div>
+      </div>
+      
+      <!--效果开始 end--> 
+      
+    </div>
+    {/eyou:channelartlist}
+    <div class="clear"></div>
+    {eyou:channelartlist typeid='36'}
+    <div class="index_case" style="background-image:url({eyou:global name='web_templets_m' /}/skin/img/case.jpg);background-size:100% auto;background-repeat:no-repeat;">
+      <div class="index_about01">{eyou:field name='typename' /}</div>
+      
+      <!---->
+      <div class="index_case01"> {eyou:arclist titlelen='30' row='4' infolen='20'}
+        <dl>
+          <a href="{$field.arcurl}" style="width:100%; height:100%; display:block;">
+          <dt style="background:url({$field.litpic}) no-repeat center center; background-size:auto 100%; width:100%; height:100%;"></dt>
+          <dd><span>{$field.title}</span>{$field.seo_description}...</dd>
+          </a>
+        </dl>
+        {/eyou:arclist}
+        <div class="clear"></div>
+      </div>
+      <!----> 
+      
+      <a href="{eyou:field name='typeurl'/}" class="index_case02">更多 +</a> </div>
+    {/eyou:channelartlist}
+    <div class="clear"></div>
+    {eyou:channelartlist typeid='1'}
+    <div class="index_about" style="background-image:url({eyou:global name='web_templets_m'/}/skin/img/about.jpg); background-size:100% auto ;background-repeat:no-repeat;">
+      <div class="index_about01">{eyou:field name='typename' /}</div>
+      <div class="index_about02"> {eyou:type addtable='single_content'}
+        {$field.content|html_msubstr=###,0,78,true}...
+        {/eyou:type} </div>
+      <div class="index_about03">{eyou:global name="web_name" /}</div>
+      <div style="text-align:right; color:#461d00; font-size:0.16rem; padding-right:4.5%; padding-top:1%;">{eyou:field name='englist_name' /}</div>
+    </div>
+    {/eyou:channelartlist}
+    <div class="clear"></div>
+    {eyou:channelartlist typeid='37'}
+    <div class="index_honor">
+      <div class="index_honor01">
+        <div class="index_pro02">{eyou:field name='typename' /}</div>
+        <div class="index_honor02"> 
+          <!---->
+          
+          <div class="slider800"> {eyou:arclist titlelen='30'}
+            <div class="slide"><a href="{$field.arcurl}" style="bor/der:#351000 solid 0.02rem; display:block; width:90%; margin:0 auto; border:#351000 solid 0.02rem;  background:#f00; height:1.4rem; background:url({$field.litpic}) center center no-repeat; background-size:auto 100%;"></a></div>
+            {/eyou:arclist} </div>
+          <script type="text/javascript">
+        $(document).ready(function(){
+          $('.slider800').bxSlider({
+            slideWidth: 600,
+            minSlides: 2,
+            maxSlides: 2,
+			infiniteLoop: false,
+            slideMargin: 0
+          });
+        });
+    </script>
+          <style>
+.index_honor01 .bx-wrapper .bx-pager{ display:none;}
+.index_honor01 .bx-wrapper { height:1.55rem; overfl/ow:hidden;}
+	
+.index_honor01 .bx-wrapper .bx-prev {left: -12%; top:32%;width: 0.4rem;height: 0.53rem; background:url({eyou:global name='web_templets_m'/}/skin/img/jj03.png) no-repeat; background-size:cover;}
+.index_honor01 .bx-wrapper .bx-next {right: -12%; top:32%;width: 0.4rem;height: 0.53rem;background:url({eyou:global name='web_templets_m'/}/skin/img/jj04.png) no-repeat; background-size:cover;}
+	
+	
+</style>
+          
+          <!----> 
+          
+        </div>
+      </div>
+      <a href="{eyou:field name='typeurl'/}" class="index_honor03">更多 +</a></div>
+    {/eyou:channelartlist}
+    <div class="clear"></div>
+    {eyou:channelartlist typeid='2'}
+    <div class="index_news" style="background-image:url({eyou:global name='web_templets_m'/}/skin/img/news.jpg);background-size:100% auto;background-repeat:no-repeat;"> 
+      
+      <!---->
+      <div class="index_news01">
+        <div class="index_news02"><span>{eyou:field name='typename' /}</span>{eyou:field name='englist_name' /}</div>
+        
+        <!---->
+        
+        <div class="slider80"> {eyou:arclist titlelen='30' infolen='40'}
+          <div class="slide">
+            <div class="index_news03">
+              <dl>
+                <a href="{$field.arcurl}">
+                <dt style=" background-image:url({$field.litpic});"></dt>
+                <dd> <strong>{$field.title}</strong><span>{$field.seo_description}...</span> </dd>
+                </a>
+              </dl>
+            </div>
+          </div>
+          {/eyou:arclist} </div>
+        <script type="text/javascript">
+        $(document).ready(function(){
+          $('.slider80').bxSlider({ 
+            slideWidth: 640, 
+			adaptiveHeight: true,
+			startSlides: 0, 
+			infiniteLoop: false,
+            slideMargin: 10
+          });
+        });
+    </script>
+        <style>
+	.index_news01 .bx-wrapper .bx-pager{ display:none;}
+	.index_news01 .bx-wrapper { height:3.6rem; overfl/ow:hidden;}
+	</style>
+        
+        <!----> 
+        
+        <a href="{eyou:field name='typeurl'/}" class="index_news04">更多 +</a> </div>
+      <!----> 
+      
+    </div>
+    {/eyou:channelartlist}
+    <div class="clear"></div>
+    <div class="index_cotnact">
+      <div style=" padding-bottom:3%;"> 
+        <script type="text/javascript" src="{eyou:global name='web_templets_m' /}/skin/js/map.js"></script>
+        <style type="text/css">
+#allmap {overflow: hidden;font-family:"微软雅黑";}
+#allmap b{color: #CC5522;font-size: 14px; }
+</style>
+        <div id="allmap" style="width:100%; height:200px;"></div>
+        <script type="text/javascript">
+	  var map = new BMap.Map("allmap");
+	  map.centerAndZoom(new BMap.Point({eyou:global name='web_attr_56' /}), 18);
+	  var marker1 = new BMap.Marker(new BMap.Point({eyou:global name='web_attr_56' /}));  // 创建标注
+	  map.addOverlay(marker1);              // 将标注添加到地图中
+	  //marker1.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画				
+	  //创建信息窗口 
+	  var infoWindow1 = new BMap.InfoWindow("<b>{eyou:global name="web_name" /}</b><br>地址：{eyou:global name='web_attr_55' /}<br>电话：{eyou:global name='web_attr_2' /}");
+	  marker1.openInfoWindow(infoWindow1);
+	  //marker1.addEventListener("click", function(){this.openInfoWindow(infoWindow1);});	
+	  //向地图中添加缩放控件
+ var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+ map.addControl(ctrl_nav);
+      //向地图中添加缩略图控件
+ var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
+ map.addControl(ctrl_ove);
+      //向地图中添加比例尺控件
+ var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+ map.addControl(ctrl_sca);
+ 
+ map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+        map.enableScrollWheelZoom();//启用地图滚轮放大缩小
+        map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+        map.enableKeyboard();//启用键盘上下左右键移动地				
+</script> 
+      </div>
+      <div class="bq">技术支持：<a target="_blank" href="http://www.eyoucms.com">易优</a></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  {eyou:include file="/template/mobile/footer.htm" /}</div>
+</body>
+</html>

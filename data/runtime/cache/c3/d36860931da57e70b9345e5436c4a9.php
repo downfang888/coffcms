@@ -1,0 +1,4 @@
+<?php
+//000000086400
+ exit();?>
+a:6:{i:1;a:6:{s:2:"id";i:1;s:3:"nid";s:7:"article";s:8:"ctl_name";s:7:"Article";s:6:"ntitle";s:6:"文章";s:8:"ifsystem";i:1;s:5:"table";s:7:"article";}i:2;a:6:{s:2:"id";i:2;s:3:"nid";s:7:"product";s:8:"ctl_name";s:7:"Product";s:6:"ntitle";s:6:"产品";s:8:"ifsystem";i:1;s:5:"table";s:7:"product";}i:3;a:6:{s:2:"id";i:3;s:3:"nid";s:6:"images";s:8:"ctl_name";s:6:"Images";s:6:"ntitle";s:6:"图集";s:8:"ifsystem";i:1;s:5:"table";s:6:"images";}i:4;a:6:{s:2:"id";i:4;s:3:"nid";s:8:"download";s:8:"ctl_name";s:8:"Download";s:6:"ntitle";s:6:"下载";s:8:"ifsystem";i:1;s:5:"table";s:8:"download";}i:6;a:6:{s:2:"id";i:6;s:3:"nid";s:6:"single";s:8:"ctl_name";s:6:"Single";s:6:"ntitle";s:6:"单页";s:8:"ifsystem";i:1;s:5:"table";s:6:"single";}i:8;a:6:{s:2:"id";i:8;s:3:"nid";s:9:"guestbook";s:8:"ctl_name";s:9:"Guestbook";s:6:"ntitle";s:6:"留言";s:8:"ifsystem";i:1;s:5:"table";s:9:"guestbook";}}

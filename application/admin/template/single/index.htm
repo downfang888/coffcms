@@ -1,0 +1,203 @@
+{include file="public/layout" /}
+<style type="text/css">
+  .tb_child {
+    background:#FFFFDF;
+  }
+</style>
+<body style="background-color: rgb(255, 255, 255); overflow: auto; cursor: default;">
+<div class="page">
+  {include file="single/bar" /}
+  <form method="post">
+    <div class="flexigrid">
+      <div class="mDiv">
+        <div class="ftitle">
+          <h3>单页列表</h3>
+          <h5>(共{$arctype_list|count}条记录)</h5>
+        </div>
+        <div title="刷新数据" class="pReload"><i class="fa fa-refresh"></i></div>
+      </div>
+      <div class="hDiv">
+        <div class="hDivBox">
+          <table cellpadding="0" cellspacing="0">
+            <thead>
+              <tr>
+                <th align="left" axis="col3" class="">
+                  <div class="sundefined" style="text-align: left; width: 50px;">ID</div>
+                </th>
+                <th align="left" axis="col3" class="">
+                  <div class="sundefined" style="text-align: left; width: 300px;">所属栏目</div>
+                </th>
+                <th align="center" axis="col1" class="">
+                    <div style="text-align: left; width: 180px;">操作</div>
+                </th>
+                <th axis="col4">
+                  <div></div>
+                </th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+         
+      <div id="flexigrid" class="bDiv" style="height: auto;">
+        {empty name="arctype_list"}
+        <div id="flexigrid" cellpadding="0" cellspacing="0" border="0">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="no-data" align="center" axis="col0" colspan="50">
+                            <i class="fa fa-exclamation-circle"></i>没有符合条件的记录
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="iDiv" style="display: none;"></div>
+        {else /}
+        <table class="flex-table autoht" cellpadding="0" cellspacing="0" border="0" id="arctype_table">
+          <tbody id="treet1">
+          {foreach name="arctype_list" item="vo" key="k" }
+            <tr nctype="0" class="parent_id_{$vo['parent_id']}" data-level="{$vo['level']}" data-id="{$vo['id']}">
+              <td class="name">
+                <div style="text-align: left; width: 50px;">       
+                  {$vo.id}
+                </div>
+              </td>
+              <td class="name">
+                <div style="text-align: left; width: 300px;">
+                  {gt name='vo.level' value='0'}
+                  {php}
+                  for($i = 0; $i < $vo['level']; $i++) {
+                    if ($i == 0) {
+                      echo '└──';
+                    } else {
+                      echo '──';
+                    }
+                  }
+                  {/php}
+                  {/gt}
+                  {gt name="vo.has_children" value="0"}
+                  <img src="__SKIN__/images/tv-collapsable-last.gif" style="float: none;" fieldid="2" status="open" nc_type="flex" onClick="treeClicked(this,{$vo['id']});" class="has_children">
+                  {else /}
+                  <img src="__SKIN__/images/tv-collapsable-last.gif" style="float: none;" fieldid="2" status="open" nc_type="flex">
+                  {/gt}
+                  {$vo.typename}
+                </div>
+              </td>
+              <td align="center" class="">
+                  <div style="text-align: left; width: 180px; max-width:200px;">
+                      <a href="{$vo|get_typeurl=###}" class="btn blue" target="_blank"><i class="fa fa-pencil-square-o"></i>浏览</a>
+                      {eq name="'Single@add'|is_check_access" value="1"}
+                      <a href="{:U('Single/add',array('typeid'=>$vo['id']))}" class="btn blue"><i class="fa fa-pencil-square-o"></i>编辑</a>
+                      {/eq}
+                  </div>
+              </td>
+              <td style="width: 100%;">
+                <div>&nbsp;</div>
+              </td>
+            </tr>
+            {/foreach}                
+          </tbody>
+        </table>
+        {/empty}
+      </div>
+      <div class="tDiv">
+        <div class="tDiv2">
+        </div>
+        <div style="clear:both;"></div>
+      </div>   
+    </div>
+  </form>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        // 表格行点击选中切换
+        $('#flexigrid > table>tbody >tr').click(function(){
+            $(this).toggleClass('trSelected');
+        });
+
+        // 点击刷新数据
+        $('.fa-refresh').click(function(){
+            location.href = location.href;
+        });
+
+    });
+
+     // 点击展开 收缩节点
+    function treeClicked(obj,id){
+         var src = $(obj).attr('src');
+         if(src == '__SKIN__/images/tv-expandable.gif')
+         {
+             // $("#treet1 tr").removeClass('tb_child');
+             // $(".parent_id_"+id).addClass('tb_child');
+             $(".parent_id_"+id).show();
+             $(obj).attr('src','__SKIN__/images/tv-collapsable-last.gif');
+         }else{
+             $(obj).attr('src','__SKIN__/images/tv-expandable.gif');           
+             
+             // 如果是点击减号, 遍历循环他下面的所有都关闭
+             var tbl = document.getElementById("arctype_table");
+             cur_tr = obj.parentNode.parentNode.parentNode;
+             var fnd = false;
+              for (i = 0; i < tbl.rows.length; i++)
+              {
+                  var row = tbl.rows[i];
+                  
+                  if (row == cur_tr)
+                  {
+                      fnd = true;         
+                  }
+                  else
+                  {
+                      if (fnd == true)
+                      {
+                         
+                          var level = parseInt($(row).data('level'));
+                          var cur_level = $(cur_tr).data('level');
+                         
+                          if (level > cur_level)
+                          {
+                              $(row).hide();        
+                              $(row).find('img.has_children').attr('src','__SKIN__/images/tv-expandable.gif');
+                          }
+                          else
+                          {
+                              fnd = false;
+                              break;
+                          }
+                      }
+                  }
+              }          
+         }       
+    }
+  
+    function delfun(obj){
+      layer.confirm('此操作不可逆，确认删除？', {
+          btn: ['确定','取消'] //按钮
+        }, function(){
+            layer_loading('正在处理');
+          // 确定
+            $.ajax({
+              type : 'post',
+              url : $(obj).attr('data-url'),
+              data : {id:$(obj).attr('data-id')},
+              dataType : 'json',
+              success : function(data){
+                layer.closeAll();
+                if(data.status == 1){
+                  layer.msg(data.msg, {icon: 1});
+                  $('tr[data-id="'+$(obj).attr('data-id')+'"]').remove();
+                  // $(obj).parent().parent().parent().parent().parent().parent().remove();
+                }else{
+                  layer.alert(data.msg, {icon: 2});  //alert(data);
+                }
+              }
+            })
+        }, function(index){
+          layer.close(index);
+        }
+      );
+    }  
+  </script>
+</div>
+
+{include file="public/footer" /}

@@ -1,0 +1,11 @@
+ALTER TABLE `ey_ad` ADD COLUMN `is_del`  tinyint(1) NULL DEFAULT 0 COMMENT '伪删除，1=是，0=否' AFTER `admin_id`;
+ALTER TABLE `ey_ad_position` ADD COLUMN `is_del`  tinyint(1) NULL DEFAULT 0 COMMENT '伪删除，1=是，0=否' AFTER `admin_id`;
+ALTER TABLE `ey_archives` ADD COLUMN `del_method`  tinyint(1) NULL DEFAULT 0 COMMENT '伪删除状态，1为主动删除，2为跟随上级栏目被动删除' AFTER `admin_id`;
+ALTER TABLE `ey_archives` ADD COLUMN `is_del`  tinyint(1) NULL DEFAULT 0 COMMENT '伪删除，1=是，0=否' AFTER `admin_id`;
+ALTER TABLE `ey_arctype` ADD COLUMN `del_method`  tinyint(1) NULL DEFAULT 0 COMMENT '伪删除状态，1为主动删除，2为跟随上级栏目被动删除' AFTER `is_del`;
+ALTER TABLE `ey_channeltype` ADD COLUMN `is_del`  tinyint(1) NULL DEFAULT 0 COMMENT '伪删除，1=是，0=否' AFTER `status`;
+ALTER TABLE `ey_channeltype` ADD COLUMN `ifsystem`  tinyint(1) NULL DEFAULT 0 COMMENT '字段分类，1=系统(不可修改)，0=自定义' AFTER `status`;
+INSERT INTO `ey_channelfield` (`name`, `channel_id`, `title`, `dtype`, `define`, `maxlength`, `dfvalue`, `dfvalue_unit`, `remark`, `ifeditable`, `ifrequire`, `ifsystem`, `ifmain`, `sort_order`, `status`, `add_time`, `update_time`) VALUES ('del_method', '-99', '伪删除状态，1为主动删除，2为跟随上级栏目被动删除', 'switch', 'tinyint(1)', '1', '0', '', '', '1', '0', '1', '1', '100', '1', '1547890773', '1547890773');
+INSERT INTO `ey_channelfield` (`name`, `channel_id`, `title`, `dtype`, `define`, `maxlength`, `dfvalue`, `dfvalue_unit`, `remark`, `ifeditable`, `ifrequire`, `ifsystem`, `ifmain`, `sort_order`, `status`, `add_time`, `update_time`) VALUES ('is_del', '0', '伪删除，1=是，0=否', 'switch', 'tinyint(1)', '250', '', '', '', '1', '0', '1', '1', '100', '1', '1547890773', '1547890773');
+INSERT INTO `ey_channelfield` (`name`, `channel_id`, `title`, `dtype`, `define`, `maxlength`, `dfvalue`, `dfvalue_unit`, `remark`, `ifeditable`, `ifrequire`, `ifsystem`, `ifmain`, `sort_order`, `status`, `add_time`, `update_time`) VALUES ('del_method', '0', '伪删除状态，1为主动删除，2为跟随上级栏目被动删除', 'switch', 'tinyint(1)', '250', '', '', '', '1', '0', '1', '1', '100', '1', '1547890773', '1547890773');
+UPDATE `ey_channeltype` SET `ifsystem` = '1';

@@ -1,0 +1,13 @@
+
+    <div class="fixed-bar">
+        <div class="item-title">
+            <div class="subject">
+                <h3>高级选项 - 权限管理</h3>
+                <h5></h5>
+            </div>
+            <ul class="tab-base nc-row">
+                <li><a href="{eq name="$Request.action" value="rule"}javascript:void(0);{else /}{:U("Admin/rule")}{/eq}" class="tab {eq name="$Request.action" value="rule"}current{/eq}"><span>权限管理</span></a></li>
+                <li><a href="{if condition="in_array($Request.action, array('rule_add','rule_edit'))"}javascript:void(0);{else /}{:U("Admin/rule_add")}{/if}" class="tab {if condition="in_array($Request.action, array('rule_add','rule_edit'))"}current{/if}"><span>新增</span></a></li>
+            </ul>
+        </div>
+    </div>

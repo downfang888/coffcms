@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$eyou.field.seo_title}</title>
+<meta name="description" content="{$eyou.field.seo_description}" />
+<meta name="keywords" content="{$eyou.field.seo_keywords}" />
+<link href="{eyou:global name='web_cmspath' /}/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<meta name="viewport" content="width=1080">
+<link href="{eyou:global name='web_templets_pc' /}/skin/css/master.css" rel="stylesheet">
+<link href="{eyou:global name='web_templets_pc' /}/skin/css/style.css" rel="stylesheet">
+<link href="{eyou:global name='web_templets_pc' /}/skin/css/subpage.css" rel="stylesheet">
+<link href="{eyou:global name='web_templets_pc' /}/skin/css/common.css" rel="stylesheet">
+<script src="{eyou:global name='web_templets_pc' /}/skin/js/jquery.js"></script>
+<script src="{eyou:global name='web_templets_pc' /}/skin/js/jquery.superslide.2.1.1.js"></script>
+<script src="{eyou:global name='web_templets_pc' /}/skin/js/form.js"></script>
+<script src="{eyou:global name='web_templets_pc' /}/skin/js/common.js"></script>
+<script src="{eyou:global name='web_templets_pc' /}/skin/js/jquery.validator.js"></script>
+<script src="{eyou:global name='web_templets_pc' /}/skin/js/zh_cn.js"></script>
+</head>
+<body>
+{eyou:include file="/template/pc/header.htm"/}
+<div class="product sub_pro"> {eyou:include file="/template/pc/left.htm" /}
+  <div class="product02">
+    <div class="content_com_title">
+      <h2>{$eyou.field.typename}</h2>
+      <div class="bread">当前位置：{eyou:position style="crumb" /}</div>
+    </div>
+    <!--单页内容开始-->
+    <div class="content">
+      <div class="view">
+        <h1 class="view-title">{$eyou.field.typename}</h1>
+        <div class="bshare-custom view-share" ></div>
+        {$eyou.field.content} 
+        <!--地图开始--> 
+        <script type="text/javascript" src="{eyou:global name='web_templets_pc' /}/skin/js/map.js"></script>
+        <style type="text/css">
+#allmap {width: 100%;height: 400px;margin-top:20px;overflow: hidden;font-family:"微软雅黑";}
+#allmap b{color: #CC5522;font-size: 14px; }
+</style>
+        <div id="allmap"></div>
+        <script type="text/javascript">
+	  var map = new BMap.Map("allmap");
+	  map.centerAndZoom(new BMap.Point({eyou:global name='web_attr_56' /}), 18);
+	  var marker1 = new BMap.Marker(new BMap.Point({eyou:global name='web_attr_56' /}));  // 创建标注
+	  map.addOverlay(marker1);              // 将标注添加到地图中
+	  //marker1.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画				
+	  //创建信息窗口 
+	  var infoWindow1 = new BMap.InfoWindow("<b>{eyou:global name="web_name" /}</b><br>地址：{eyou:global name='web_attr_55' /}<br>电话：{eyou:global name='web_attr_2' /}");
+	  marker1.openInfoWindow(infoWindow1);
+	  //marker1.addEventListener("click", function(){this.openInfoWindow(infoWindow1);});	
+	  //向地图中添加缩放控件
+ var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+ map.addControl(ctrl_nav);
+      //向地图中添加缩略图控件
+ var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
+ map.addControl(ctrl_ove);
+      //向地图中添加比例尺控件
+ var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+ map.addControl(ctrl_sca);
+ 
+ map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+        map.enableScrollWheelZoom();//启用地图滚轮放大缩小
+        map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+        map.enableKeyboard();//启用键盘上下左右键移动地				
+</script> 
+        <!--地图结束--></div>
+      <div class="page"><a href="{eyou:global name='web_cmsurl' /}/" title="返回首页" class="back theme_color">返回首页</a> </div>
+    </div>
+    <!--单页内容结束--> 
+  </div>
+  <div class="clear"></div>
+</div>
+<div class="clear"></div>
+{eyou:include file="/template/pc/footer.htm" /}
+</body>
+</html>

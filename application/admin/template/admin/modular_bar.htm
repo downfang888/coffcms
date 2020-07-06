@@ -1,0 +1,13 @@
+
+    <div class="fixed-bar">
+        <div class="item-title">
+            <div class="subject">
+                <h3>高级选项 - 模块管理</h3>
+                <h5></h5>
+            </div>
+            <ul class="tab-base nc-row">
+                <li><a href="{eq name="$Request.action" value="modular"}javascript:void(0);{else /}{:U("Admin/modular")}{/eq}" class="tab {eq name="$Request.action" value="modular"}current{/eq}"><span>模块管理</span></a></li>
+                <li><a href="{if condition="in_array($Request.action, array('modular_add','modular_edit'))"}javascript:void(0);{else /}{:U("Admin/modular_add")}{/if}" class="tab {if condition="in_array($Request.action, array('modular_add','modular_edit'))"}current{/if}"><span>新增</span></a></li>
+            </ul>
+        </div>
+    </div>

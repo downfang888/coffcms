@@ -1,0 +1,16 @@
+
+    <div class="fixed-bar">
+        <div class="item-title">
+            {notin name="$Think.const.ACTION_NAME" value='index'}
+            <a class="back" href="javascript:history.back();" title="返回列表"><i class="fa fa-arrow-circle-o-left"></i></a>
+            {/notin}
+            <div class="subject">
+                <h3>模型管理</h3>
+                <h5></h5>
+            </div>
+            <ul class="tab-base nc-row">
+                <li><a href="{:url('Channeltype/index')}" class="tab {eq name='$Request.controller' value='Channeltype'}current{/eq}"><span>模型列表</span></a></li>
+                <li><a href="{eq name='$Request.controller' value='Field'}javascript:void(0);{else /}{:U('Field/arctype_index', array('typeid'=>$Request.param.typeid))}{/eq}" data-index='2' class="tab {eq name='$Request.controller' value='Field'}current{/eq}"><span>栏目字段管理</span></a></li>
+            </ul>
+        </div>
+    </div>

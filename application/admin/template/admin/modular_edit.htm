@@ -1,0 +1,137 @@
+{include file="public/layout" /}
+<body style="background-color: #FFF; overflow: auto;">
+<div id="toolTipLayer" style="position: absolute; z-index: 9999; display: none; visibility: visible; left: 95px; top: 573px;"></div>
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<div class="page">
+    {include file="admin/modular_bar" /}
+    <form class="form-horizontal" id="adminModularEdit" method="post">
+        <input type="hidden" name="id" id="id" value="{$info.id}">
+        <input type="hidden" name="grade" id="grade" value="{$info.grade}">
+        <div class="ncap-form-default">
+            <dl class="row">
+                <dt class="tit">
+                    <label for="name"><em>*</em>模块名称</label>
+                </dt>
+                <dd class="opt">
+                    <input type="text" value="{$info.name}" name="name" id="name" class="input-txt">
+                    <p class="notic">保持唯一性，不可重复</p>
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="tit">
+                    <label for="parent_id">所属上级模块</label>
+                </dt>
+                <dd class="opt">
+                    <select class="small form-control" id="parent_id" name="parent_id" onchange="is_show_action(this);">
+                        {$select_html}
+                    </select>
+                    <span class="err"></span>
+                    <p class="notic">如果选择上级分类，那么新增的分类则为被选择上级分类的子分类</p>
+                </dd>
+            </dl>
+            <dl class="row is_jump {elt name='info.grade' value='1'}none{/elt}">
+                <dt class="tit">
+                    <label>外部链接</label>
+                </dt>
+                <dd class="opt">
+                    <div class="onoff">
+                        <label for="is_jump1" class="cb-enable {notempty name='info.url'}selected{/notempty}">是</label>
+                        <label for="is_jump0" class="cb-disable {empty name='info.url'}selected{/empty}">否</label>
+                        <input id="is_jump1" name="is_jump" value="1" type="radio" {notempty name='info.url'}checked="checked"{/notempty}>
+                        <input id="is_jump0" name="is_jump" value="0" type="radio" {empty name='info.url'}checked="checked"{/empty}>
+                    </div>
+                    <p class="notic">外部连接（在"下方文本框"处填写网址）</p>
+                </dd>
+            </dl>
+            <dl class="row gradegt1 {if condition='empty($info.controller) || !empty($info.url)'}none{/if}">
+                <dt class="tit">
+                    <label for="controller"><em>*</em>控制器</label>
+                </dt>
+                <dd class="opt">
+                    <input type="text" value="{$info.controller}" name="controller" id="controller" class="input-txt">
+                    <p class="notic">注意区分大小写，建议拷贝减少出错</p>
+                </dd>
+            </dl>
+            <dl class="row gradegt1 {if condition='empty($info.controller) || !empty($info.url)'}none{/if}">
+                <dt class="tit">
+                    <label for="action"><em>*</em>操作名</label>
+                </dt>
+                <dd class="opt">
+                    <input type="text" value="{$info.action}" name="action" id="action" class="input-txt">
+                    <p class="notic">注意区分大小写，建议拷贝减少出错</p>
+                </dd>
+            </dl>
+            <dl class="row row_url {empty name='info.url'}none{/empty}">
+                <dt class="tit">
+                    <label for="url"><em>*</em>跳转链接</label>
+                </dt>
+                <dd class="opt">
+                    <input type="text" value="{$info.url}" name="url" id="url" class="input-txt">
+                    <p class="notic">链接的优先级别高于控制器与操作方法</p>
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="tit">
+                    <label for="name">排序</label>
+                </dt>
+                <dd class="opt">
+                    <input type="text" value="{$info.sort_order}" name="sort_order" id="sort_order" class="input-txt">
+                    <p class="notic">越小越靠前</p>
+                </dd>
+            </dl>
+            <div class="bot">
+                <a href="JavaScript:void(0);" onclick="adsubmit();" class="ncap-btn-big ncap-btn-green" id="submitBtn">确认提交</a>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){   
+        $('input[name=is_jump]').click(function(){
+            var val = $(this).val();
+            if (val == 1) {
+                $('.row_url').show();
+                $('.gradegt1').hide();
+            } else {
+                $('.row_url').hide();
+                $('.gradegt1').show();
+            }
+        });
+    });
+
+    function is_show_action(obj) {
+        var grade = parseInt($(obj).find("option:selected").attr("data-grade"));
+        if (grade >= 1) {
+            $('.is_jump').show();
+            $('.gradegt1').show();
+        } else {
+            $('.is_jump').hide();
+            $('.gradegt1').hide();
+        }
+        $('#grade').val(grade + 1);
+    }
+
+    function adsubmit(){
+        if($('input[name=name]').val() == ''){
+            layer.msg('模块名称不能为空！', {icon: 2,time: 1000});
+            return false;
+        }
+
+        var grade = parseInt($('#parent_id').find("option:selected").attr("data-grade"));
+        if (grade >= 1) {
+            if($('input[name=controller]').val() == ''){
+                layer.msg('控制器不能为空！', {icon: 2,time: 1000});
+                return false;
+            }
+            if($('input[name=action]').val() == ''){
+                layer.msg('操作名不能为空！', {icon: 2,time: 1000});
+                return false;
+            }
+        }
+        layer_loading('正在处理');
+        $('#adminModularEdit').submit();
+    }
+</script>
+
+{include file="public/footer" /}

@@ -1,0 +1,8 @@
+INSERT INTO `ey_channelfield` (`name`, `channel_id`, `title`, `dtype`, `define`, `maxlength`, `dfvalue`, `dfvalue_unit`, `remark`, `ifeditable`, `ifrequire`, `ifsystem`, `ifmain`, `sort_order`, `status`, `add_time`, `update_time`) VALUES ('admin_id', '0', '管理员ID', 'int', 'int(10)', '250', '', '', '', '1', '0', '1', '1', '100', '1', '1547890773', '1547890773');
+INSERT INTO `ey_channelfield` (`name`, `channel_id`, `title`, `dtype`, `define`, `maxlength`, `dfvalue`, `dfvalue_unit`, `remark`, `ifeditable`, `ifrequire`, `ifsystem`, `ifmain`, `sort_order`, `status`, `add_time`, `update_time`) VALUES ('lang', '0', '语言标识', 'text', 'varchar(250)', '250', '', '', '', '1', '0', '1', '1', '100', '1', '1547890773', '1547890773');
+ALTER TABLE `ey_channelfield` ADD COLUMN `ifcontrol`  tinyint(1) NOT NULL DEFAULT 1 COMMENT '状态，控制该条数据是否允许被控制，1为不允许控制，0为允许控制' AFTER `ifmain`;
+UPDATE `ey_channelfield` SET `ifcontrol` = '0' WHERE `ifmain` = 0;
+UPDATE `ey_channelfield` SET `title` = '作者' WHERE `name` = 'author' AND `channel_id` = 0;
+UPDATE `ey_channelfield` SET `title` = '封面图片' WHERE `name` = 'litpic' AND `channel_id` = 0;
+ALTER TABLE `ey_archives` MODIFY COLUMN `author`  varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '作者' AFTER `is_jump`;
+ALTER TABLE `ey_archives` MODIFY COLUMN `litpic`  varchar(250) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '封面图片' AFTER `title`;

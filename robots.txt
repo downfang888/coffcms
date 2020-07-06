@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /install_*/
+Disallow: /core/
+Disallow: /application/
+Disallow: /*&uiset=off*
+Disallow: /*&uiset=on*

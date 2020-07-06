@@ -1,0 +1,63 @@
+<!doctype html>
+<html style="font-size: 120px;">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="telephone=no" name="format-detection">
+<title>{$eyou.field.seo_title}</title>
+<meta name="description" content="{$eyou.field.seo_description}" />
+<meta name="keywords" content="{$eyou.field.seo_keywords}" />
+<link href="{eyou:global name='web_cmspath' /}/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="{eyou:global name='web_templets_m' /}/skin/css/swiper.min.css" />
+<link rel="stylesheet" type="text/css" href="{eyou:global name='web_templets_m' /}/skin/css/master.css" />
+<link rel="stylesheet" type="text/css" href="{eyou:global name='web_templets_m' /}/skin/css/subpage.css" />
+<link rel="stylesheet" type="text/css" href="{eyou:global name='web_templets_m' /}/skin/css/jquery.bxslider.css" />
+<script type="text/javascript" src="{eyou:global name='web_templets_m' /}/skin/js/jquery.js"></script>
+<script type="text/javascript" src="{eyou:global name='web_templets_m' /}/skin/js/swiper.min.js"></script>
+<script type="text/javascript" src="{eyou:global name='web_templets_m' /}/skin/js/common.js"></script>
+<script type="text/javascript" src="{eyou:global name='web_templets_m' /}/skin/js/jquery.bxslider.js"></script>
+</head>
+<style>
+.head {
+	background: #ffffff
+}
+.foot {
+	background: #3f3f3f
+}
+.nav {
+	background: #481f01
+}
+.nav_color {
+	background: #481f01
+}
+</style>
+
+<body>
+{eyou:include file="/template/mobile/header.htm" /}
+<div class="allpage">
+  <div class="black-fixed commonfont">&#xe607;</div>
+  <div class="header">
+    <div class="head"> <a href="{eyou:global name='web_cmsurl' /}/" title="首页" class="home-btn commonfont">&#xe608;</a>
+      <p class="top-title">{$eyou.field.typename}</p>
+      {eyou:notempty name="$eyou.field.has_children"}
+      <div class="class-btn"><span class="commonfont">&#xe60a;</span>分类</div>
+      {/eyou:notempty}
+      <div class="nav-btn commonfont">&#xe60b;</div>
+    </div>
+    <div class="type">
+      <h1>分类：</h1>
+      <ul>
+        {eyou:channel type="sonself"}
+        <li> <a href="{$field.typeurl}" title="{$field.typename}"> {$field.typename} </a> <span class="commonfont class-down">&#xe60c;</span> </li>
+        {/eyou:channel}
+      </ul>
+    </div>
+  </div>
+  </case>
+  <div class="content">
+    <div class="about"> 　　
+      {$eyou.field.content} </div>
+  </div>
+  {eyou:include file="/template/mobile/footer.htm" /} </div>
+</body>
+</html>

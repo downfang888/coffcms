@@ -1,0 +1,12 @@
+
+                    <div class="sDiv2 addartbtn">
+                        <input type="button" value="留言列表" onClick="window.location.href='{eq name="$Request.action" value="index"}javascript:void(0);{else /}{:U("Guestbook/index", array('typeid'=>$Request.param.typeid))}{/eq}';" class="btn {eq name="$Request.action" value="index"}current{/eq}">
+                    </div>
+                    <div class="sDiv2 addartbtn">
+                        <input type="button" value="属性列表" onClick="window.location.href='{eq name="$Request.action" value="attribute_index"}javascript:void(0);{else /}{:U("Guestbook/attribute_index", array('typeid'=>$Request.param.typeid))}{/eq}';" class="btn {eq name="$Request.action" value="attribute_index"}current{/eq}">
+                    </div>
+                    {eq name="$Think.const.CONTROLLER_NAME.'@attribute_add'|is_check_access" value="1"}
+                    <div class="sDiv2 addartbtn">
+                        <input type="button" value="新增属性" onClick="window.location.href='{:U("Guestbook/attribute_add", array('typeid'=>$Request.param.typeid))}';"  class="btn">
+                    </div>
+                    {/eq}

@@ -1,0 +1,1 @@
+UPDATE `ey_archives` SET `is_litpic` = 0 WHERE `is_litpic` is NULL OR `is_litpic` = '';

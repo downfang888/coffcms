@@ -1,0 +1,96 @@
+<!doctype html>
+<html style="font-size: 120px;">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="telephone=no" name="format-detection">
+<title>{$eyou.field.seo_title}</title>
+<meta name="description" content="{$eyou.field.seo_description}" />
+<meta name="keywords" content="{$eyou.field.seo_keywords}" />
+<link href="{eyou:global name='web_cmspath' /}/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="{eyou:global name='web_templets_m' /}/skin/css/swiper.min.css" />
+<link rel="stylesheet" type="text/css" href="{eyou:global name='web_templets_m' /}/skin/css/master.css" />
+<link rel="stylesheet" type="text/css" href="{eyou:global name='web_templets_m' /}/skin/css/subpage.css" />
+<link rel="stylesheet" type="text/css" href="{eyou:global name='web_templets_m' /}/skin/css/jquery.bxslider.css" />
+<script type="text/javascript" src="{eyou:global name='web_templets_m' /}/skin/js/jquery.js"></script>
+<script type="text/javascript" src="{eyou:global name='web_templets_m' /}/skin/js/swiper.min.js"></script>
+<script type="text/javascript" src="{eyou:global name='web_templets_m' /}/skin/js/common.js"></script>
+<script type="text/javascript" src="{eyou:global name='web_templets_m' /}/skin/js/jquery.bxslider.js"></script>
+</head>
+<style>
+.head {
+	background: #ffffff
+}
+.foot {
+	background: #3f3f3f
+}
+.nav {
+	background: #481f01
+}
+.nav_color {
+	background: #481f01
+}
+</style>
+
+<body>
+{eyou:include file="/template/mobile/header.htm" /}
+<div class="allpage">
+  <div class="black-fixed commonfont">&#xe607;</div>
+  <div class="header">
+    <div class="head"> <a href="{eyou:global name='web_cmsurl' /}/" title="首页" class="home-btn commonfont">&#xe608;</a>
+      <p class="top-title">{$eyou.field.typename}</p>
+      {eyou:notempty name="$eyou.field.has_children"}
+      <div class="class-btn"><span class="commonfont">&#xe60a;</span>分类</div>
+      {/eyou:notempty}
+      <div class="nav-btn commonfont">&#xe60b;</div>
+    </div>
+    <div class="type">
+      <h1>分类：</h1>
+      <ul>
+        {eyou:channel type="sonself"}
+        <li> <a href="{$field.typeurl}" title="{$field.typename}"> {$field.typename} </a> <span class="commonfont class-down">&#xe60c;</span> </li>
+        {/eyou:channel}
+      </ul>
+    </div>
+  </div>
+  </case>
+  <div class="content">
+    <div class="about"> 　　
+      {$eyou.field.content} </div>
+    <!--地图开始--> 
+    <script type="text/javascript" src="{eyou:global name='web_templets_pc' /}/skin/js/map.js"></script>
+    <style type="text/css">
+#allmap {width: 100%;height: 300px;margin-top:20px;overflow: hidden;font-family:"微软雅黑";}
+#allmap b{color: #CC5522;font-size: 14px; }
+</style>
+    <div id="allmap"></div>
+    <script type="text/javascript">
+	  var map = new BMap.Map("allmap");
+	  map.centerAndZoom(new BMap.Point({eyou:global name='web_attr_56' /}), 18);
+	  var marker1 = new BMap.Marker(new BMap.Point({eyou:global name='web_attr_56' /}));  // 创建标注
+	  map.addOverlay(marker1);              // 将标注添加到地图中
+	  //marker1.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画				
+	  //创建信息窗口 
+	  var infoWindow1 = new BMap.InfoWindow("<b>{eyou:global name="web_name" /}</b><br>地址：{eyou:global name='web_attr_55' /}<br>电话：{eyou:global name='web_attr_2' /}");
+	  marker1.openInfoWindow(infoWindow1);
+	  //marker1.addEventListener("click", function(){this.openInfoWindow(infoWindow1);});	
+	  //向地图中添加缩放控件
+ var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+ map.addControl(ctrl_nav);
+      //向地图中添加缩略图控件
+ var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
+ map.addControl(ctrl_ove);
+      //向地图中添加比例尺控件
+ var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+ map.addControl(ctrl_sca);
+ 
+ map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+        map.enableScrollWheelZoom();//启用地图滚轮放大缩小
+        map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+        map.enableKeyboard();//启用键盘上下左右键移动地				
+</script> 
+    <!--地图结束--> 
+  </div>
+  {eyou:include file="/template/mobile/footer.htm" /} </div>
+</body>
+</html>

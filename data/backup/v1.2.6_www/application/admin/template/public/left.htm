@@ -1,0 +1,35 @@
+<div class="metcms_cont_left hidden-xs">
+    <dl class="metlogo">
+        {notempty name="$is_eyou_authortoken"}
+        <a href="{$Request.url}"><img src="__SKIN__/images/logo_ey.png?v={php}echo time();{/php}" alt="点击刷新" title="点击刷新"></a>
+        {else /}
+        <a href="{$Request.url}"><img src="__SKIN__/images/logo.png?v={php}echo time();{/php}" alt="点击刷新" title="点击刷新"></a>
+        {/notempty}
+    </dl>
+    {volist name="menu" id="vo"}
+    <dl>
+    <!--<dt>内容</dt>-->
+        {notempty name="vo.name"}<dt>{$vo.name}</dt>{/notempty}
+        <dd class="sub-menu">
+          {volist name="vo['child']" id="v2" key="k2"}
+            {if condition="!empty($v2['controller']) OR !empty($v2['url']) OR !empty($vo2['child'])"}
+                {empty name="v2['child']"}
+                <a href="{$v2.url|default='javascript:void(0);'}" {empty name="$v2.url"}data-param="{$v2.controller}|{$v2.action}"{/empty} target="{$v2.target}"><i class="{$v2.icon|default='fa fa-minus'}"></i>{$v2.name}</a>
+                {else/}
+                <dl class="jslist" style="border-bottom:none;">
+                    <dt><i class="{$v2.icon|default='fa fa-minus'}"></i>{$v2.name}<i class="fa fa-angle-right"></i>{if condition="$v2.controller == 'Senior' and !empty($upgradeMsg)"}{/if}</dt>
+                    <dd style="display: none;">
+                        {volist name="v2['child']" id="v3" key="k3"}
+                            {if condition="!empty($v3['controller']) OR !empty($v3['url']) OR !empty($v3['child'])"}
+                            <a href="{$v3.url|default='javascript:void(0);'}" {empty name="$v3.url"}data-param="{$v3.controller}|{$v3.action}"{/empty} target="{$v3.target}"><i class="{$v3.icon|default='fa fa-minus'}"></i>{$v3.name}{if condition="$v3.controller == 'Upgrade' and !empty($upgradeMsg)"}{/if}</a>
+                            {/if}
+                        {/volist}
+                    </dd>
+                </dl>
+                {/empty}
+            {/if}
+          {/volist}
+        </dd>
+    </dl>
+    {/volist}
+</div>

@@ -1,0 +1,154 @@
+{include file="public/layout" /}
+<body style="background-color: #FFF; overflow: auto;">
+<div id="toolTipLayer" style="position: absolute; z-index: 9999; display: none; visibility: visible; left: 95px; top: 573px;"></div>
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<div class="page">
+    {include file="admin/rule_bar" /}
+    <form class="form-horizontal" id="adminRuleEdit" method="post">
+        <input type="hidden" name="id" value="{$info.id}">
+        <div class="ncap-form-default">
+            <dl class="row">
+                <dt class="tit">
+                    <label for="name"><em>*</em>权限名称</label>
+                </dt>
+                <dd class="opt">
+                    <input type="text" value="{$info.name}" name="name" id="name" class="input-txt">
+                    <p class="notic"></p>
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="tit">
+                    <label for="modular_id"><em>*</em>所属模块</label>
+                </dt>
+                <dd class="opt">
+                    <select class="small form-control" id="modular_id" name="modular_id">
+                        <option value="0">--请选择--</option>
+                        {$select_html}
+                    </select>
+                    <span class="err"></span>
+                    <p class="notic">倘若没找到对应的模块，可先到模块管理新增模块</p>
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="tit">
+                    <label for="group"><em>*</em>新增权限码</label>
+                </dt>
+                <dd class="opt">
+                    <select class="small form-control" id="controller" onchange="get_act_list(this);">
+                        <option value="">选择控制器</option>
+                        {foreach name="planList" item="vo"}
+                            <option value="{$vo}">{$vo}</option>
+                        {/foreach}
+                    </select>
+                    <input type="hidden" id="power_operator" value="{$power_operator}" />
+                    <span class="err"></span>
+                    <select id="act_list">
+                        <option value="">选择控制器</option>
+                        {foreach name="planList" item="vo"}
+                            <option value="{$vo}">{$vo}</option>
+                        {/foreach}
+                    </select>
+                    <a class="ncap-btn" onclick="add_right();">新增</a>
+                    <p class="notic">
+                    </p>
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="tit">
+                    <label for="name"><em>*</em>权限码</label>
+                </dt>
+                <dd class="opt">
+                    <table>
+                        <tr><th style="width:80%">权限码</th><th style="width: 50px;text-align: center;" >操作</th></tr>
+                        <tbody id="rightList">
+                        {foreach name="info['right']" item="vo"}
+                            <tr><td><input name="right[]" type="text" value="{$vo}" class="form-control" style="width:300px;"></td>
+                                <td style="text-align: center;"><a class="ncap-btn" href="javascript:void(0);" onclick="$(this).parent().parent().remove();">删除</a></td></tr>
+                        {/foreach}
+                        </tbody>
+                    </table>
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="tit">
+                    <label for="remark">备注</label>
+                </dt>
+                <dd class="opt">
+                    <textarea id="remark" name="remark" class="tarea" rows="6">{$info.remark}</textarea>
+                    <span class="err"></span>
+                    <p class="notic"></p>
+                </dd>
+            </dl>
+
+            <div class="bot">
+                <a href="JavaScript:void(0);" onclick="adsubmit();" class="ncap-btn-big ncap-btn-green" id="submitBtn">确认提交</a>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+    function add_right(){
+        var ncode = $('#controller').val();
+        var actname = $('#act_list').val();
+        var power_operator = $('#power_operator').val();
+
+        if (ncode == '' || actname == '' || power_operator == '') {
+            layer.msg('请选择新增权限码！', {icon: 2,time: 1000});
+            return false;
+        }
+        
+        var a = [];
+        $('#rightList .form-control').each(function(i,o){
+            if($(o).val() != ''){
+                a.push($(o).val());
+            }
+        })
+        if(ncode !== ''){
+            var temp = ncode+power_operator+actname;
+            if($.inArray(temp,a) != -1){
+                layer.msg('此权限码已经新增！', {icon: 2,time: 1000});
+                return false;
+            }
+        }
+        var strtr = '<tr>';
+        if(ncode!= ''){
+            strtr += '<td><input type="text" name="right[]" value="'+ncode+power_operator+actname+'" class="form-control" style="width:300px;"></td>';
+        }else{
+            strtr += '<td><input type="text" name="right[]" value="" class="form-control" style="width:300px;"></td>';
+        }
+        strtr += '<td style="text-align: center;"><a href="javascript:;" class="ncap-btn" onclick="$(this).parent().parent().remove();">删除</a></td>';
+        $('#rightList').append(strtr);
+    }
+    function get_act_list(obj){
+        $.ajax({
+            url: "{:U('Admin/ajax_get_action')}",
+            type:'get',
+            data: {'controller':$(obj).val()},
+            dataType:'html',
+            success:function(res){
+                $('#act_list').empty().append(res);
+            }
+        });
+    }
+    function adsubmit(){
+        if($('input[name=name]').val() == ''){
+            layer.msg('权限名称不能为空！', {icon: 2,time: 1000});
+            return false;
+        }
+
+        if($('#modular_id').val() == 0){
+            layer.msg('请选择所属模块！', {icon: 2,time: 1000});
+            return false;
+        }
+
+        if($('input[name="right\[\]"]').length == 0){
+            layer.msg('权限码不能为空！', {icon: 2,time: 1000});
+            return false;
+        }
+        layer_loading('正在处理');
+        $('#adminRuleEdit').submit();
+    }
+</script>
+
+{include file="public/footer" /}

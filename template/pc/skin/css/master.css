@@ -1,0 +1,456 @@
+﻿@charset "utf-8";
+/*■■■■■■■■　共同设定 ■■■■■■■■*/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, table, tr, th, td {
+	margin: 0;
+	padding: 0;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+fieldset, img {
+	border: 0;
+}
+address, caption, cite, code, dfn, em, th, var {
+	font-style: normal;
+	font-weight: normal;
+}
+ul, ul li, input, dl, dd {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+img, a img {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+caption, th {
+	text-align: left;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	font-weight: normal;
+}
+a {
+	text-decoration: none;
+	color: #444;
+	-moz-transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+a:hover {
+	text-decoration: none;
+}
+.clear {
+	clear: both;
+}
+/*■■■■■■■■　基本设定　■■■■■■■■*/
+body {
+	font-family: "微软雅黑";
+	font-size: 12px;
+	color: #535353;
+	overflow-x: hidden;
+	background: #f3eee8
+}
+.theme_color {
+	background: #fff;
+}
+.theme_color1 {
+	background: #ee0062;
+}
+.theme_color2 {
+	background: #222;
+}
+/*----------------- ■ common -------------------*/
+.rollover:hover img {
+	opacity: .7;
+	filter: alpha(opacity=70);
+	-ms-filter: "alpha(opacity=70)";
+	-khtml-opacity: .7;
+/zoom: 1;
+}
+.main {
+	width: 1004px;
+	margin: 0 auto;
+	position: relative;
+over/flow:hidden;
+	z-index: 999;
+}
+/*----------------- ■ header -------------------*/
+.header {
+	width: 100%;
+	height: 97px;
+	background: url(../images/header01.jpg) repeat;
+	position: relative;
+}
+.logo {
+	float: left;
+	height: 97px;
+	overflow: hidden;
+}
+.header .tel {
+	float: right;
+	background: url(../images/tel.png) left center no-repeat;
+	line-height: 97px;
+	padding: 0 0 0 46px;
+	color: #351000;
+	font-size: 28px;
+	font-family: Impact;
+}
+.header .tel span {
+	display: block;
+	font-size: 14px;
+	font-weight: normal;
+	font-family: '微软雅黑';
+}
+/*------search-------*/
+.isearch {
+	float: right;
+	width: 30px;
+	height: 30px;
+	margin: 16px 0 0;
+	position: relative;
+}
+.isearch span {
+	display: block;
+	height: 30px;
+	background: url(../images/search.png) center top no-repeat;
+}
+.search01 {
+	display: none;
+	position: absolute;
+	top: 30px;
+	right: 290px;
+	width: 157px;
+	height: 39px;
+	background: url(../images/ss01.png) repeat;
+	z-index: 999;
+}
+.search02 {
+	float: left;
+}
+.search02 input.search03 {
+	background: none;
+	width: 96px;
+	padding-left: 8px;
+	font-size: 12px;
+	color: #6e7375;
+	font-family: '微软雅黑';
+	height: 39px;
+	line-height: 39px;
+	border: none;
+	border: 0;
+	font-size: 14px;
+}
+.search02 input.search04 {
+	width: 53px;
+	font-size: 14px;
+	color: #fff;
+	font-family: '微软雅黑';
+	height: 39px;
+	line-height: 39px;
+	border: none;
+	border: 0;
+	background: #9c541a;
+	cursor: pointer;
+	font-size: 14px;
+	text-align: center;
+}
+.search05 {
+	float: left;
+	width: 85px;
+}
+.search_btn {
+	position: absolute;
+	top: 30px;
+	right: 250px;
+	cursor: pointer;
+}
+.jslct {
+	color: #9c541a;
+	font-family: "微软雅黑";
+	display: inline-block;
+*display:inline;
+	zoom: 1;
+	font-size: 14px;
+	position: relative;
+	vertical-align: middle;
+	cursor: default;
+	width: 85px;
+	height: 39px;
+	line-height: 39px;
+	background: url(../images/k1.png) no-repeat 70px center;
+	z-index: 0;
+}
+.jslct_hover {
+}
+.jslct div.jslct_t {
+	position: relative;
+	padding-left: 5px;
+	z-index: 2;
+*display:block!important;
+*display:inline;
+	zoom: 1;
+}
+.jslct em {
+	font-style: normal;
+	margin: 0;
+	padding: 0;
+	display: block;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.jslct dl, .jslct dl dd {
+	padding: 0;
+	margin: 0;
+	list-style: none
+}
+.jslct dl {
+	background: #fff;
+	position: absolute;
+	top: 39px;
+	left: 0;
+	cursor: default;
+	width: 80px;
+	padding: 0 0 0;
+	overflow: hidden;
+	z-index: 1;
+	display: none;
+	font-size: 14px;
+	border: #737373 solid 1px;
+}
+.jslct_hover dl {
+}
+.jslct dl dd {
+	box-sizing: border-box;
+	font-size: 12px;
+	text-align: center;
+	line-height: 25px;
+border-/bottom:#ccc solid 1px;
+	white-space: nowrap;
+	cursor: pointer;
+	-moz-transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+.jslct dl dd:hover {
+	color: #737373;
+	background: #e4e4e4;
+}
+.jslct dl dd.hover {
+	color: #737373;
+	background: #e4e4e4;
+}
+.jslct .jslcted {
+}
+.jslct dl dd.noborder {
+}
+/*********nav*********/
+.g_nav {
+	position: absolute;
+	top: 97px;
+	left: 0;
+	width: 100%;
+	height: 60px;
+	background: #e4e4e4;
+	z-index: 9;
+	border-top: #974305 solid 4px;
+	background: url(../images/nav01.jpg) top center repeat-x;
+}
+.g_nav01 {
+	width: 1004px;
+	margin: 0 auto;
+	position: relative;
+}
+.g_nav01 table tr td {
+	text-align: center;
+	height: 60px;
+	line-height: 52px;
+	position: relative;
+}
+.g_nav01 a {
+	height: 60px;
+	line-height: 52px;
+	display: block;
+	color: #fff;
+	font-size: 16px;
+	background: url(../images/nav03.png) top center no-repeat;
+}
+.g_nav01 .ihome a {
+	background: url(../images/home.png) no-repeat top center;
+	color: #f7b786;
+	padding: 0 8px;
+}
+.g_nav01 .ihome a:hover {
+	background: url(../images/home.png) no-repeat top center;
+	color: #f7b786;
+}
+.g_nav01 a:hover {
+	background: url(../images/nav04.jpg) top center repeat-x;
+	color: #f7b786;
+fo/nt-weight:bold;
+}
+.g_nav01 a.cur {
+	background: url(../images/nav04.jpg) top center repeat-x;
+	color: #f7b786;
+}
+.g_nav01 a.g_nav01_on {
+	background: url(../images/nav04.jpg) top center repeat-x;
+	color: #f7b786;
+}
+.g_nav01 table {
+}
+.g_nav01 table tr td .nav_tan {
+	display: none;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 52px;
+	background: #f3eee8;
+	border-top: #d2cbc5 solid 1px;
+	z-index: 99999;
+}
+.g_nav01 table tr td .nav_tan a {
+	background: #f3eee8;
+	line-height: 38px;
+	height: 38px;
+	font-size: 14px;
+	color: #351000;
+	display: block;
+	overflow: hidden;
+	border-bottom: #d2cbc5 solid 1px;
+}
+.g_nav01 table tr td .nav_tan a:hover {
+	color: #fff;
+	background: #974305;
+}
+.index_nav {
+	display: none;
+	width: 150px;
+	padding: 10px 0;
+	min-height: 457px;
+	_height: 457px;
+	background: #333;
+	position: absolute;
+	top: 145px;
+	left: 50%;
+	margin-left: -550px;
+}
+.index_nav ul li {
+	position: relative;
+	line-height: 42px;
+	height: 42px;
+}
+.index_nav ul li a {
+	display: block;
+	color: #fff;
+	font-size: 15px;
+	text-align: center;
+}
+.index_nav a:hover {
+	background: #4d4d4d;
+}
+.index_nav a.cur {
+	background: #4d4d4d;
+}
+.index_nav ul li .nav_tan {
+	display: none;
+	width: 100%;
+	position: absolute;
+	left: 150px;
+	top: 0;
+	background: #333;
+	border-top: #333 solid 1px;
+}
+.index_nav ul li .nav_tan a {
+	line-height: 41px;
+	height: 41px;
+	font-size: 14px;
+	color: #fff;
+	display: block;
+	overflow: hidden;
+	border-bottom: #4d4d4d solid 1px;
+}
+/*********footer*********/
+.footer {
+	height: 210px;
+ma/rgin:100px 0 0;
+	background: #ffcc00 url(../images/f04.jpg) repeat;
+	color: #000;
+}
+.footer00 {
+	width: 1004px;
+	margin: 0 auto;
+	position: relative;
+	font-size: 14px;
+}
+.footer01 {
+	width: 160px;
+	height: 160px;
+	float: left;
+	text-align: center;
+	overflow: hidden;
+	background: url(../images/er02.png) no-repeat;
+	margin-top: 24px;
+}
+.footer01 img {
+	margin-top: 12px;
+}
+.footer02 {
+	float: left;
+	width: 780px;
+	padding: 0 0 0 43px;
+}
+.footer03 {
+	background: url(../images/f05.png) repeat-x left bottom;
+	line-height: 39px;
+	padding: 29px 0 16px;
+}
+.footer03 span {
+	font-size: 24px;
+	font-family: 'Impact';
+	vertical-align: middle;
+}
+.footer03 a {
+	color: #000;
+	margin: 0 10px 0 10px;
+}
+.footer03 a:hover {
+	text-decoration: underline;
+}
+.footer04 {
+	padding-top: 13px;
+}
+.footer04 span {
+	float: left;
+	padding-top: 7px;
+}
+.f_bq {
+	text-align: center;
+	height: 46px;
+	line-height: 46px;
+	background: #000;
+	color: #666;
+}
+.f_bq a {
+	color: #666;
+}
+.f_bq a:hover {
+	color: #bebebe;
+}
+::-webkit-input-placeholder {/* WebKit, Blink, Edge */
+color: #888;
+}
+:-moz-placeholder {/* Mozilla Firefox 4-18 */
+color: #888;
+}
+::-moz-placeholder {/* Mozilla Firefox 19+ */
+color: #888;
+}
+:-ms-input-placeholder {/* Internet Explorer 10-11 */
+color: #888;
+}

@@ -1,0 +1,13 @@
+
+    <div class="fixed-bar">
+        <div class="item-title">
+            <div class="subject">
+                <h3>广告管理</h3>
+                <h5></h5>
+            </div>
+            <ul class="tab-base nc-row">
+                <li><a href="{eq name="$Request.controller" value="Ad"}javascript:void(0);{else /}{:U("Ad/index")}{/eq}" class="tab {eq name="$Request.controller" value="Ad"}current{/eq}"><span>广告列表</span></a></li>
+                <li><a href="{if condition="$Request.controller == 'AdPosition'"}javascript:void(0);{else /}{:U("AdPosition/index")}{/if}" class="tab {if condition="$Request.controller == 'AdPosition'"}current{/if}"><span>广告位置</span></a></li>
+            </ul>
+        </div>
+    </div>

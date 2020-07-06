@@ -1,0 +1,70 @@
+<!--页头开始-->
+
+<div class="header theme_color1">
+  <div class="main">
+    <div class="logo"><a href="{eyou:global name='web_cmsurl' /}/" title="{eyou:global name="web_name" /}"> <img src="{eyou:global name="web_logo" /}" alt="{eyou:global name="web_name" /}" width="465" height="97"/></a></div>
+    <div class="tel">{eyou:global name='web_attr_2' /}</div>
+    <!--搜索栏开始-->
+    <div class="search_btn"><img src="{eyou:global name='web_templets_pc' /}/skin/images/ssbtn.png"/></div>
+    <div class="search01">
+      <form class="sidebar-search" method="get" action="{eyou:searchurl /}">
+        <input type="hidden" name="channel" value="" />
+        <input type="hidden" name="typeid" value="" />
+        <div class="search02">
+          <input class="search03" type="text" name="keywords" value="请输入关键字" onfocus="if(this.value==defaultValue)this.value=''" onblur="if(this.value=='')this.value=defaultValue">
+        </div>
+        <div class="search02">
+          <input name="submit" type="submit" class="search04" value="搜索" />
+        </div>
+      </form>
+    </div>
+    <script>
+    	$(function(){
+			$('.jslct dl dd').click(function(){
+				$(this).closest('form').attr('action',$(this).attr('value'));
+			});
+			///
+			$(".search_btn").click(function(){
+				$(".search01").slideToggle("slow");
+			});////
+		})
+</script> 
+    <!--搜索栏结束--> 
+  </div>
+</div>
+<!--页头结束--> 
+
+<!--导航开始-->
+<div class="g_nav">
+  <div class="g_nav01">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td class="ihome"><a href="{eyou:global name='web_cmsurl' /}/"  title="网站首页">网站首页</a></td>
+        {eyou:channelartlist type='top'}
+        <td><a href="{eyou:field name='typeurl'/}">{eyou:field name='typename' /}</a>
+          <div class="nav_tan"> {eyou:channel row="10" type="son"} <a href="{$field.typeurl}">{$field.typename}</a> {/eyou:channel} </div></td>
+        {/eyou:channelartlist}</tr>
+    </table>
+  </div>
+</div>
+<!--导航结束-->
+<div class="clear"></div>
+<!--幻灯片大图开始-->
+<div id="slideBox" class="slideBox">
+  <div class="bd">
+    <ul>
+      {eyou:adv pid='1'}
+      <li style="background: url({$field.litpic}) center center no-repeat;"><a href="{$field.links}"><img src="{eyou:global name='web_templets_pc' /}/skin/images/no.gif"/></a></li>
+      {/eyou:adv}
+    </ul>
+  </div>
+  <div class="hd">
+    <ul>
+      {eyou:adv pid='1'}
+      <li></li>
+      {/eyou:adv}
+    </ul>
+  </div>
+  <a href="javascript:void(0)" class="prev"></a> <a href="javascript:void(0)" class="next"></a> </div>
+<script src="{eyou:global name='web_templets_pc' /}/skin/js/banner.js"></script> 
+<!--幻灯片大图结束--> 

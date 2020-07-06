@@ -1,0 +1,28 @@
+<div class="sub_pro01"> 
+  <!--产品分类开始--> 
+  {eyou:channelartlist typeid='35'}
+  <div class="sub_pro02">
+    <div class="product07"><b>{eyou:field name='typename'/}</b></div>
+    <div class="sidenav">
+      <ul>
+        {eyou:channel type="son" currentstyle="cu"}
+        <li><a href="{$field.typeurl}" title="{$field.typename}" class="sidenava {$field.currentstyle}">
+          <p>{$field.typename}</p>
+          </a> </li>
+        {/eyou:channel}
+      </ul>
+    </div>
+  </div>
+  {/eyou:channelartlist} 
+  
+  <!--产品分类结束--> 
+  
+  <!--联系我们开始-->
+  <div class="sub_lx">
+    <div class="sub_lx01">咨询热线<br>
+      {eyou:global name='web_attr_2' /}<br>
+      地址：{eyou:global name='web_attr_55' /}<br>
+      邮箱：{eyou:global name='web_attr_54' /}</div>
+  </div>
+  <!--联系我们结束--> 
+</div>

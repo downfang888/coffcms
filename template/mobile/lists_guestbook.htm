@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="telephone=no" name="format-detection">
+<title>{$eyou.field.seo_title}</title>
+<meta name="description" content="{$eyou.field.seo_description}" />
+<meta name="keywords" content="{$eyou.field.seo_keywords}" />
+<link rel="stylesheet" type="text/css" href="{eyou:global name='web_templets_m' /}/skin/css/swiper.min.css" />
+<link rel="stylesheet" type="text/css" href="{eyou:global name='web_templets_m' /}/skin/css/master.css" />
+<link rel="stylesheet" type="text/css" href="{eyou:global name='web_templets_m' /}/skin/css/subpage.css" />
+<link rel="stylesheet" type="text/css" href="{eyou:global name='web_templets_m' /}/skin/css/jquery.bxslider.css" />
+<script type="text/javascript" src="{eyou:global name='web_templets_m' /}/skin/js/jquery.js"></script>
+<script type="text/javascript" src="{eyou:global name='web_templets_m' /}/skin/js/swiper.min.js"></script>
+<script type="text/javascript" src="{eyou:global name='web_templets_m' /}/skin/js/common.js"></script>
+<script type="text/javascript" src="{eyou:global name='web_templets_m' /}/skin/js/jquery.bxslider.js"></script>
+<script src="{eyou:global name='web_templets_m' /}/skin/js/zh_cn.js"></script>
+<script src="{eyou:global name='web_templets_m' /}/skin/js/jquery.validator.js"></script>
+</head><style>
+.head {
+	background: #ffffff
+}
+.foot {
+	background: #3f3f3f
+}
+.nav {
+	background: #481f01
+}
+.nav_color {
+	background: #481f01
+}
+</style>
+<script type="text/javascript" src="{eyou:global name='web_templets_m' /}/skin/js/form.js"></script>
+</head><body>
+{eyou:include file="/template/mobile/header.htm" /}
+<div class="allpage">
+  <div class="black-fixed commonfont">&#xe607;</div>
+  <div class="header">
+    <div class="head"> <a href="{eyou:global name='web_cmsurl' /}/" title="首页" class="home-btn commonfont">&#xe608;</a>
+      <p class="top-title">{$eyou.field.typename}</p>
+      {eyou:notempty name="$eyou.field.has_children"}
+      <div class="class-btn"><span class="commonfont">&#xe60a;</span>分类</div>
+      {/eyou:notempty}
+      <div class="nav-btn commonfont">&#xe60b;</div>
+    </div>
+    <div class="type">
+      <h1>分类：</h1>
+      <ul>
+        {eyou:channel type="son" id="field"}
+        <li> <a href="{$field.typeurl}" title="{$field.typename}"> {$field.typename} </a> <span class="commonfont class-down">&#xe60c;</span> </li>
+        {/eyou:channel}
+      </ul>
+    </div>
+  </div>
+  </case>
+  <div class="content">
+    <center>
+      {$eyou.field.typename}
+    </center>
+    <p class="red_alert"></p>
+    <ul class="login">
+      {eyou:guestbookform type='default'}
+      <form action="{$field.action}" enctype="multipart/form-data" class="msgForm" method="post">
+        <li>
+          <input class="login_input" name="{$field.attr_4}" type="text" id="{$field.attr_4}" placeholder="姓名" data-rule="姓名:required;"/>
+        </li>
+        <li>
+          <input class="login_input" name="{$field.attr_5}" type="text" id="{$field.attr_5}" placeholder="电话" data-rule="电话:required;mobile|tel"/>
+        </li>
+        <li>
+          <input class="login_input" name="{$field.attr_9}" type="text" id="{$field.attr_9}" placeholder="地址" data-rule="地址:required;"/>
+        </li>
+        <li>
+          <textarea class="login_textarea" name="{$field.attr_6}" id="{$field.attr_6}" cols="30" rows="10" placeholder="内容" data-rule="咨询内容:required;"></textarea>
+        </li>
+        <li>
+          <input class="login_btn theme-color" id="baidu-book" type="submit" value="提   交"/>
+        </li>
+        {$field.hidden}
+      </form>
+      {/eyou:guestbookform}
+    </ul>
+  </div>
+  {eyou:include file="/template/mobile/footer.htm" /} </div>
+</body>
+</html>

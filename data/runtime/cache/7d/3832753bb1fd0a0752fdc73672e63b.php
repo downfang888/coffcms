@@ -1,0 +1,4 @@
+<?php
+//000000000000
+ exit();?>
+s:879:"D:\phpstudy_pro\WWW\www.a1.com/data/runtime/cache\19\2135c3af9350a44bbf39e3c41a567c.php,D:\phpstudy_pro\WWW\www.a1.com/data/runtime/cache\e0\9d27b445ac749387403f4aa95c20e7.php,D:\phpstudy_pro\WWW\www.a1.com/data/runtime/cache\2e\9db9e9ac9550c7c346c13a5e9e4c3a.php,D:\phpstudy_pro\WWW\www.a1.com/data/runtime/cache\10\923926c13e48dd92ef1d231e2fae2f.php,D:\phpstudy_pro\WWW\www.a1.com/data/runtime/cache\e6\6ed49e314d6d6cea44a3a532f80ae9.php,D:\phpstudy_pro\WWW\www.a1.com/data/runtime/cache\59\27edbffb34ae6d744ab277cc858c69.php,D:\phpstudy_pro\WWW\www.a1.com/data/runtime/cache\5b\9919d7c796ef41a2fb795268cde04e.php,D:\phpstudy_pro\WWW\www.a1.com/data/runtime/cache\07\9a0a60f0de5554a7885c7ed5e5138d.php,D:\phpstudy_pro\WWW\www.a1.com/data/runtime/cache\e5\7fb16be77d7709502de5dfa7d2158b.php,D:\phpstudy_pro\WWW\www.a1.com/data/runtime/cache\92\db722fb17da7ac0a624798d2e9ddcf.php";

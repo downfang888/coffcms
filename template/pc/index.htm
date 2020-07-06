@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{eyou:global name='web_title' /}</title>
+<meta name="description" content="{eyou:global name='web_description' /}" />
+<meta name="keywords" content="{eyou:global name='web_keywords' /}" />
+<meta name="viewport" content="width=1080">
+<link href="{eyou:global name='web_cmspath' /}/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="{eyou:global name='web_templets_pc' /}/skin/css/master.css" />
+<link rel="stylesheet" type="text/css" href="{eyou:global name='web_templets_pc' /}/skin/css/style.css" />
+<link rel="stylesheet" type="text/css" href="{eyou:global name='web_templets_pc' /}/skin/css/subpage.css" />
+<link rel="stylesheet" type="text/css" href="{eyou:global name='web_templets_pc' /}/skin/css/common.css" />
+<script src="{eyou:global name='web_templets_pc' /}/skin/js/jquery.js"></script>
+<script src="{eyou:global name='web_templets_pc' /}/skin/js/jquery.superslide.2.1.1.js"></script>
+<script src="{eyou:global name='web_templets_pc' /}/skin/js/form.js"></script>
+<script src="{eyou:global name='web_templets_pc' /}/skin/js/common.js"></script>
+<script src="{eyou:global name='web_templets_pc' /}/skin/js/jquery.validator.js"></script>
+<script src="{eyou:global name='web_templets_pc' /}/skin/js/zh_cn.js"></script>
+</head>
+<body>
+{eyou:include file="/template/pc/header.htm" /} 
+<!--网站公告开始-->
+<div class="index_gonggao">
+  <div class="index_gonggao01"><span>网站公告：</span>
+    <marquee scrollamount="2" scrolldelay="5" onMouseOut="this.start()" onMouseOver="this.stop()">
+    {eyou:global name='web_attr_1' /}
+    </marquee>
+  </div>
+</div>
+<!--网站公告结束-->
+
+<div class="clear"></div>
+<!--产品中心开始--> 
+{eyou:channelartlist typeid='35'}
+<div class="index_pro00">
+  <div class="index_pro01">
+    <div class="index_hovor02">{eyou:field name='typename' /}</div>
+    <div class="index_pro02">
+      <div class="picScroll-left01">
+        <div class="hd"> <a class="next"></a><a class="prev"></a> </div>
+        <div class="bd">
+          <ul class="picList">
+            {eyou:arclist titlelen='30'  infolen='160'}
+            <li><a class="chanpin00" href="{$field.arcurl}" title="{$field.title}">
+              <div class="index_pro03">
+                <div class="index_pro04" >{$field.title}</div>
+              </div>
+              <img src="{$field.litpic}" alt="{$field.title}" width="310" height="232"/></a></li>
+            {/eyou:arclist}
+          </ul>
+        </div>
+      </div>
+      <script type="text/javascript">
+		jQuery(".picScroll-left01").slide({titCell:".hd ul",mainCell:".bd ul",interTime: 3000,autoPage:true,effect:"left",autoPlay:true,vis:2,trigger:"click"});
+</script> 
+    </div>
+  </div>
+</div>
+{/eyou:channelartlist} 
+<!--产品中心结束--> 
+<script language="javascript">
+			$(function(){
+				$(".chanpin00").hover(
+					function(){
+						$(this).children(".index_pro03").fadeIn(200);
+					}, 
+					function(){
+						$(this).children(".index_pro03").fadeOut(200);
+					});	
+			});
+</script>
+<div class="clear"></div>
+
+<!--成功案例开始--> 
+{eyou:channelartlist typeid='36'}
+<div class="index_case01">
+  <div class="index_case02">
+    <div class="index_about01">{eyou:field name='typename' /}</div>
+    <div class="index_case03"><img src="{eyou:global name='web_templets_pc' /}/skin/images/case05.png"/></div>
+    <div class="index_case04"> {eyou:arclist titlelen='30' limit='0,4' infolen='160'}
+      <dl>
+        <dt><a href="{$field.arcurl}" title="{$field.title}"><img src="{$field.litpic}" alt="{$field.title}"  height="180"/></a></dt>
+      </dl>
+      {/eyou:arclist} </div>
+    <!--推荐内容开始-->
+    <div class="index_case05">
+      <div class="slideBox02">
+        <div class="hd">
+          <ul>
+          </ul>
+        </div>
+        <div class="bd">
+          <ul>
+            {eyou:arclist limit='4,7' titlelen='30' infolen='60'}
+            <li>
+              <div class="index_case06"><a href="{$field.arcurl}" title="{$field.title}">
+                <div class="index_case07"><span >{$field.title}</span>
+                  <p>{$field.seo_description}</p>
+                </div>
+                <img src="{$field.litpic}" alt="{$field.title}" height="376"/></a></div>
+            </li>
+            {/eyou:arclist}
+          </ul>
+        </div>
+      </div>
+      <script type="text/javascript">
+		jQuery(".slideBox02").slide({titCell:".hd ul",mainCell:".bd ul",interTime: 3000,autoPage:true,autoPlay:true});
+</script> 
+    </div>
+    <!--推荐内容结束-->
+    <div class="clear"></div>
+    <div class="index_hovor04" style=" padding-top:12px;"><a href="{eyou:field name='typeurl'/}"  title="更多 +">更多 +</a></div>
+  </div>
+</div>
+{/eyou:channelartlist} 
+
+<!--成功案例结束-->
+
+<div class="clear"></div>
+<!--关于我们开始--> 
+{eyou:channelartlist typeid='1'}
+<div class="index_about">
+  <div class="index_about01">{eyou:field name='typename' /}</div>
+  <div class="index_about02">
+    <div class="index_about03">
+      <p style="text-indent: 2em;"> {eyou:type addtable='single_content'}
+        {$field.content|html_msubstr=###,0,160,true}...
+        {/eyou:type} </p>
+    </div>
+    <div class="clear"></div>
+    <div class="index_about04">{eyou:global name="web_name" /}</div>
+  </div>
+</div>
+{/eyou:channelartlist} 
+<!--关于我们结束-->
+
+<div class="clear"></div>
+
+<!--资质荣誉开始--> 
+{eyou:channelartlist typeid='37'}
+<div class="index_hovor">
+  <div class="index_hovor01">
+    <div class="index_hovor02">{eyou:field name='typename' /}</div>
+    <div class="index_hovor03">
+      <div class="picScroll-left">
+        <div class="hd"> <a class="next"></a><a class="prev"></a></div>
+        <div class="bd">
+          <ul class="picList">
+            {eyou:arclist titlelen='30' infolen='60'}
+            <li><a href="{$field.arcurl}" title="{$field.title}"><img src="{$field.litpic}" alt="{$field.title}"/></a></li>
+            {/eyou:arclist}
+          </ul>
+        </div>
+      </div>
+      <script type="text/javascript">
+		jQuery(".picScroll-left").slide({titCell:".hd ul",mainCell:".bd ul",interTime: 3000,autoPage:true,effect:"left",autoPlay:true,vis:3,trigger:"click"});
+</script>
+      <div class="index_hovor04"><a href="{eyou:field name='typeurl'/}"  title="更多 +">更多 +</a></div>
+    </div>
+  </div>
+</div>
+{/eyou:channelartlist} 
+
+<!--资质荣誉结束-->
+
+<div class="clear"></div>
+<div class="index_news"> 
+  <!--新闻资讯开始--> 
+  {eyou:channelartlist typeid='2'}
+  <div class="index_news01">
+    <div class="index_news02">{eyou:field name='typename' /}<span>{eyou:field name='englist_name' /}</span></div>
+    <div class="slideBox01">
+      <div class="bd">
+        <ul>
+          {eyou:arclist titlelen='30' infolen='60'}
+          <li>
+            <div class="index_news03">
+              <dl>
+                <dt><a href="{$field.arcurl}" title="{$field.title}"><img src="{$field.litpic}" alt="{$field.title}" width="430" height="176"/></a></dt>
+                <dd><a href="{$field.arcurl}" title="{$field.title}"><strong>·</strong>{$field.title}</a><span>{$field.seo_description}</span></dd>
+              </dl>
+            </div>
+          </li>
+          {/eyou:arclist}
+        </ul>
+      </div>
+      <a class="prev" href="javascript:void(0)"></a> <a class="next" href="javascript:void(0)"></a> </div>
+    <script type="text/javascript">
+		jQuery(".slideBox01").slide({mainCell:".bd ul",interTime: 3000,autoPlay:true});
+</script>
+    <div class="index_news04"><a href="{eyou:field name='typeurl'/}"  title="MORE+">MORE+</a></div>
+  </div>
+  {/eyou:channelartlist} 
+  <!--新闻资讯结束--> 
+  
+  <!--联系我们开始--> 
+  {eyou:channelartlist typeid='38'}
+  <div class="index_contact">
+    <div class="index_news02">{eyou:field name='typename' /}<span>{eyou:field name='englist_name' /}</span></div>
+    <div class="index_contact01"> 
+      <script type="text/javascript" src="{eyou:global name='web_templets_pc' /}/skin/js/map.js"></script>
+      <style type="text/css">
+#allmap {overflow: hidden;font-family:"微软雅黑";}
+#allmap b{color: #CC5522;font-size: 14px; }
+</style>
+      <div id="allmap" style="width:100%; height:300px;"></div>
+      <script type="text/javascript">
+	  var map = new BMap.Map("allmap");
+	  map.centerAndZoom(new BMap.Point({eyou:global name='web_attr_56' /}), 18);
+	  var marker1 = new BMap.Marker(new BMap.Point({eyou:global name='web_attr_56' /}));  // 创建标注
+	  map.addOverlay(marker1);              // 将标注添加到地图中
+	  //marker1.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画				
+	  //创建信息窗口 
+	  var infoWindow1 = new BMap.InfoWindow("<b>{eyou:global name="web_name" /}</b><br>地址：{eyou:global name='web_attr_55' /}<br>电话：{eyou:global name='web_attr_2' /}");
+	  marker1.openInfoWindow(infoWindow1);
+	  //marker1.addEventListener("click", function(){this.openInfoWindow(infoWindow1);});	
+	  //向地图中添加缩放控件
+ var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+ map.addControl(ctrl_nav);
+      //向地图中添加缩略图控件
+ var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
+ map.addControl(ctrl_ove);
+      //向地图中添加比例尺控件
+ var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+ map.addControl(ctrl_sca);
+ 
+ map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+        map.enableScrollWheelZoom();//启用地图滚轮放大缩小
+        map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+        map.enableKeyboard();//启用键盘上下左右键移动地				
+</script> 
+    </div>
+    <div class="index_contact02">
+      <ul>
+        <li>电话：{eyou:global name='web_attr_2' /}</li>
+        <li style=" background:url({eyou:global name='web_templets_pc' /}/skin/images/co02.png) no-repeat 6px 7px;">邮箱：{eyou:global name='web_attr_54' /}</li>
+        <li style=" background:url({eyou:global name='web_templets_pc' /}/skin/images/co03.png) no-repeat 6px 7px;">地址：{eyou:global name='web_attr_55' /}</li>
+      </ul>
+    </div>
+  </div>
+  {/eyou:channelartlist} 
+  
+  <!--联系我们结束--> 
+</div>
+<div class="clear"></div>
+{eyou:include file="/template/pc/footer.htm" /}
+</body>
+</html>
